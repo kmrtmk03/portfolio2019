@@ -1,0 +1,218 @@
+<template>
+  <div class="menu-wrap" v-bind:class="{active : isActive}">
+    <div class="button-open" v-bind:class="{small: headSmall}" v-on:click="openWrapper">men<span class="list-dec">u</span></div>
+    <nav class="nav">
+      <span class="white-out" v-bind:class="{active: isActive}"></span>
+      <ul class="list-wrap">
+        <li
+          class="list-child"
+          v-for="list in lists"
+          v-bind:key="list.id"
+          v-bind:class="'list-child-' + list.name">
+          <router-link
+            :to="list.to"
+            class="list-link"
+            @mouseover.native="sliceCurrent(list.displayName)">{{ list.name }}</router-link>
+        </li>
+      </ul>
+      <div class="button-close" v-on:click="closeMenu">c<span class="list-dec">l</span>ose</div>
+      <span class="menu-currentPage" v-html="this.currentChoise"></span>
+    </nav>
+  </div>
+</template>
+
+<script>
+import store from '../store'
+
+export default {
+  name: 'Menu',
+  data: function() {
+    return {
+      isActive: false,
+      lists: [
+        { id: 1, name: 'Home', to: '/', displayName: 'home' },
+        { id: 2, name: 'Profile', to: '/profile', displayName: 'profile'  },
+        { id: 3, name: 'Works - Private', to: '/work', displayName: 'works'  },
+        { id: 4, name: 'Works - Company', to: '/work', displayName: 'works'  },
+        { id: 5, name: 'Link', to: '/link', displayName: 'link'  }
+      ],
+      currentChoise: ''
+    }
+  },
+  computed: {
+    headSmall() {
+      return store.state.headSmall
+    },
+    currentPage() {
+      return store.state.currentPage
+    }
+  },
+  methods: {
+    openWrapper: function () {
+      this.openMenu();
+      this.sliceCurrent('');
+    },
+    openMenu: function() {
+      this.isActive = true;
+    },
+    closeMenu: function() {
+      this.isActive = false;
+    },
+    sliceCurrent: function (_name) {
+      let beforeText = _name //引数をローカル変数に
+      let beforeTextArry = beforeText.split('') //一文字ずつ分割して配列に入れる
+      let afterText = '' //後にcurrentChoiseになるローカル変数
+
+      let ran = Math.floor(Math.random() * beforeTextArry.length) //乱数を取得
+
+      for(let i = 0; i < beforeTextArry.length; i++) {
+        let tex = '' //ローカル変数
+        if(i == ran) { //乱数の値の時
+          tex = '<span style="color:yellow; text-transform: uppercase">' + beforeTextArry[i] + "</span>" //その文字だけspanタグで囲む
+        } else { //それ以外
+          tex = beforeTextArry[i] //普通に文字を入れる
+        }
+        afterText += tex //文字を連結させていく
+      }
+
+      this.currentChoise = afterText
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+
+.menu-wrap {
+  background-color: #000;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  z-index: 102;
+  top: -100vh;
+  transition: all 500ms 600ms ease;
+  &.active {
+    top: 0vh;
+    transition: all 500ms 0s ease;
+  }
+}
+
+.nav {
+  position: relative;
+  height: 100vh;
+  z-index: 10;
+  background-color: #000;
+}
+
+.white-out {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  transition: all 500ms 0ms ease;
+  &.active {
+    right: 100vw;
+    transition: all 500ms 600ms ease;
+  }
+}
+
+.list-wrap {
+  height: 370px;
+  padding-top: calc((100vh - 480px) / 2);
+}
+
+.button-open,
+.button-close {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  height: 24px;
+  top: 60px;
+  right: 60px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 768px) {
+  .button-open,
+  .button-close {
+    font-size: 18px;
+    height: 18px;
+    top: 20px;
+    right: 20px;
+  }
+} 
+
+.button-close {
+  position: absolute;
+}
+
+.button-open {
+  transition: all 400ms 0ms ease;
+  position: fixed;
+  z-index: 9;
+  &.small {
+  transition: all 400ms 300ms ease;
+    top: 20px;
+  }
+}
+
+.list-child {
+  margin-bottom: 20px;
+  height: 80px;
+  position: relative;
+  z-index: 3;
+}
+
+.list-link {
+  display: inline-block;
+  font-size: 32px;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 auto;
+  transition: all 100ms 0ms ease;
+  position: relative;
+  &:not(.router-link-exact-active) {
+    &::before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      height: 30px;
+      background-color: #FFD800;
+      bottom: 6px;
+      z-index: -1;
+      width: 0px;
+      transition: all 200ms 0ms ease;
+      left: -20px;
+    }
+    &:hover {
+      font-size: 64px;
+      &::before {
+        width: calc(100% + 40px);
+        transition: all 400ms 0ms ease-out;
+      }
+    }
+  }
+  &.router-link-exact-active {
+    color: rgba(255, 255, 255, 0.1);
+  }
+}
+.menu-currentPage {
+  font-size: 240px;
+  display: inline-block;
+  height: 240px;
+  position: absolute;
+  left: -30px;
+  bottom: -30px;
+  color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  .menu-currentPage-yellow {
+    color: red;
+  }
+}
+</style>

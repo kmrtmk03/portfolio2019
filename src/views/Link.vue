@@ -1,0 +1,5 @@
+<template>
+    <div class="container">
+        <h1>Link</h1>
+    </div>
+</template>
