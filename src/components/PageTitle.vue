@@ -1,7 +1,7 @@
 <template>
     <div class="pageTitle-container" v-bind:class="[{small: headSmall}]">
         <h1 class="pageTitle" v-bind:class="[{small: headSmall}]">{{ pageTitle }}</h1>
-        <p class="pageTitle-sub" v-bind:class="[{small: headSmall}]">Installation Engineer</p>
+        <p class="pageTitle-sub" v-bind:class="[{small: headSmall}]">{{ pageSubTitle }}</p>
     </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
       }
   },
   props: {
-    'pageTitle': String
+    'pageTitle': String,
+    'pageSubTitle': String
   },
   mounted() {
     window.addEventListener('scroll', this.titleSmall)

@@ -92,7 +92,6 @@ export default {
     }
 } 
 
-
 .sectionTitle {
     font-size: 32px;
     text-align: left;

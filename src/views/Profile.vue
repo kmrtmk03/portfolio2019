@@ -2,7 +2,7 @@
     <div class="container">
         <TransitionMask />
         <Menu />
-        <PageTitle v-bind:pageTitle='title'></PageTitle>
+        <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
         <div class="section-wrap section-wrap-first">
             <SectionTitle v-bind:sectionTitle='arry_1st.title' v-bind:className='arry_1st.className'></sectionTitle>
             <p class="section-detail">
@@ -63,6 +63,7 @@ export default {
     data: function() {
         return {
             title: 'Tomoki Kimura',
+            subTitle: 'Installation Engineer',
             arry_1st: {
                 title: 'Profile',
                 className: 'profile'
