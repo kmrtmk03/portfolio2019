@@ -104,7 +104,7 @@ export default {
         }
     },
     mounted() {
-        store.state.currentPage = 'Profile'
+        store.state.currentPage = 'Profil'
     }
 }
 </script>
