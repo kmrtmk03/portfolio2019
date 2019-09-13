@@ -103,6 +103,22 @@ export default {
         width: 0;
     }
 }
+@media screen and (max-width: 768px) {
+    .pageTitle-container.small {
+        &::before, &::after {
+            height: 40px;
+        }
+        &::before {
+            transition: all 400ms 300ms ease;
+            top: 0;
+            height: 42px;
+        }
+        &::after {
+            transition: all 300ms 0ms ease;
+            width: 0;
+        }
+    }
+} 
 
 .pageTitle, .pageTitle-sub {
     text-align: left;
@@ -141,12 +157,21 @@ export default {
         font-size: 12px;
         top: -8px;
     }
-} 
+}
+
 .pageTitle.small {
     font-weight: normal;
     transition: all 400ms 300ms ease;
     font-size: 40px;
     height: 40px;
 }
+@media screen and (max-width: 768px) {
+    .pageTitle.small {
+        font-weight: bold;
+        font-size: 24px;
+        height: 24px;
+    }
+} 
+
 
 </style>

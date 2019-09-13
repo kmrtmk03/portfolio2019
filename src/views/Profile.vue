@@ -114,37 +114,85 @@ export default {
     width: 800px;
     margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+    .list-parent {
+        width: 100vw;
+        margin: 0 auto;
+    }
+} 
+
 .list-child {
     display: flex;
     flex-direction: row;
 }
+@media screen and (max-width: 768px) {
+    .list-child {
+        display: block;
+        margin-bottom: 40px;
+    }
+} 
+
 .list-left, .list-right {
     margin: 0;
 }
+
 .list-left {
     font-weight: bold;
     width: 150px;
 }
+@media screen and (max-width: 768px) {
+    .list-left {
+        width: 90vw;
+        font-size: 22px;
+        margin: 0 auto;
+    }
+} 
+
 .list-right {
     width: 650px;
 }
-
+@media screen and (max-width: 768px) {
+    .list-right {
+        width: 90vw;
+        margin: 0 auto;
+    }
+} 
 .container {
     padding: 0px 0 40px;
 }
+
 .section-detail {
     margin: 60px auto 0;
 }
+
 p {
     font-size: 16px;
     text-align: left;
     width: 800px;
     line-height: 48px;
 }
+@media screen and (max-width: 768px) {
+    p {
+        width: 90vw;
+    }
+} 
+
 .section-wrap {
     margin-bottom: 200px;
 }
+@media screen and (max-width: 768px) {
+    .section-wrap {
+        margin-bottom: 100px;
+    }
+} 
+
 .section-wrap-first {
     padding-top: 240px;
 }
+@media screen and (max-width: 768px) {
+    .section-wrap-first {
+        padding-top: 150px;
+    }
+} 
+
 </style>

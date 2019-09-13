@@ -161,6 +161,13 @@ export default {
     top: 20px;
   }
 }
+@media screen and (max-width: 768px) {
+  .button-open {
+    &.small {
+      top: 14px;
+    }
+  }
+} 
 
 .list-child {
   margin-bottom: 20px;

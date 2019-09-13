@@ -81,6 +81,17 @@ export default {
         transition: all 400ms 400ms ease;
     }
 }
+@media screen and (max-width: 768px) {
+    .sectionTitle-container.active {
+        &::before {
+            width: 95vw;
+        }
+        &::after {
+            width: 90vw;
+        }
+    }
+} 
+
 
 .sectionTitle {
     font-size: 32px;
@@ -97,4 +108,15 @@ export default {
     transition: all 400ms 0ms ease;
     }
 }
+@media screen and (max-width: 768px) {
+    .sectionTitle {
+        font-weight: bold;
+        font-size: 80px;
+        width: 90vw;
+        &.active {
+            font-size: 80px;
+        }
+    }
+} 
+
 </style>
