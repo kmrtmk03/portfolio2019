@@ -6,8 +6,7 @@
         <div class="section-wrap section-wrap-first">
             <SectionTitle v-bind:sectionTitle='arry_1st.title' v-bind:className='arry_1st.className'></sectionTitle>
             <p class="section-detail">
-                キムラトモキ。<br>
-                25歳。<br>
+                キムラトモキ、25歳。<br>
                 2016年3月に近畿大学経済学部を卒業直後、デジタルハリウッド大阪校にて<br>
                 DTP/Webデザイン/コーディングを学ぶ。<br>
                 2017年8月より株式会社イメージソースでデザインエンジニアとして就職。<br>
@@ -104,7 +103,7 @@ export default {
         }
     },
     mounted() {
-        store.state.currentPage = 'Profil'
+        store.state.currentPage = 'Profile'
     }
 }
 </script>
