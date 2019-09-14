@@ -107,7 +107,7 @@ export default {
   width: 100vw;
   height: 100vh;
   display: block;
-  background-color: #ffffff;
+  background-color: $gray;
   position: absolute;
   top: 0;
   right: 0;
