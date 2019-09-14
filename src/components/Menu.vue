@@ -190,7 +190,7 @@ export default {
       position: absolute;
       display: inline-block;
       height: 30px;
-      background-color: #FFD800;
+      background-color: $keyColor;
       bottom: 6px;
       z-index: -1;
       width: 0px;

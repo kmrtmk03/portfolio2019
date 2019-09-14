@@ -45,7 +45,7 @@ export default {
 .mask-1 {
     top: 0;
     height: 40vh;
-    background-color: #FFD800;
+    background-color: $keyColor;
 }
 .mask-2 {
     top: 40vh;
@@ -55,7 +55,7 @@ export default {
 .mask-3 {
     top: 50vh;
     height: 5vh;
-    background-color: #FFD800;
+    background-color: $keyColor;
 }
 .mask-4 {
     top: 55vh;

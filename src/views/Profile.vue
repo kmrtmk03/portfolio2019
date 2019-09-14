@@ -112,10 +112,10 @@ export default {
 <style scoped lang="scss">
 
 .list-parent {
-    width: 800px;
+    width: $width-inner;
     margin: 0 auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .list-parent {
         width: 100vw;
         margin: 0 auto;
@@ -126,7 +126,7 @@ export default {
     display: flex;
     flex-direction: row;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .list-child {
         display: block;
         margin-bottom: 40px;
@@ -141,7 +141,7 @@ export default {
     font-weight: bold;
     width: 150px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .list-left {
         width: 90vw;
         font-size: 22px;
@@ -152,7 +152,7 @@ export default {
 .list-right {
     width: 650px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .list-right {
         width: 90vw;
         margin: 0 auto;
@@ -167,12 +167,12 @@ export default {
 }
 
 p {
-    font-size: 16px;
+    font-size: $fontsize-small;
     text-align: left;
-    width: 800px;
+    width: $width-inner;
     line-height: 48px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     p {
         width: 90vw;
     }
@@ -181,7 +181,7 @@ p {
 .section-wrap {
     margin-bottom: 200px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .section-wrap {
         margin-bottom: 100px;
     }
@@ -190,7 +190,7 @@ p {
 .section-wrap-first {
     padding-top: 240px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .section-wrap-first {
         padding-top: 150px;
     }

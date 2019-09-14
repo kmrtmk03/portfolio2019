@@ -34,7 +34,7 @@ export default {
         titleAnim: function() {
             const title = document.querySelector('.' + this.className)
             this.posY = title.getBoundingClientRect().top
-            if(140 < this.posY && this.posY < 700) {
+            if(40 < this.posY && this.posY < 700) {
                 this.isActive = true
             } else {
                 this.isActive = false
@@ -55,7 +55,7 @@ export default {
         height: 40px;
     }
     &::before {
-        background-color: #666666;
+        background-color: $gray;
         width: 0;
         top: 60px;
         right: 0;
@@ -63,7 +63,7 @@ export default {
         transition: all 400ms 200ms ease;
     }
     &::after {
-        background-color: #FFD800;
+        background-color: $keyColor;
         width: 0;
         top: 70px;
         right: 0;
@@ -93,10 +93,10 @@ export default {
 } 
 
 .sectionTitle {
-    font-size: 32px;
+    font-size: $fontsize-lerge;
     text-align: left;
     margin: 0 auto;
-    width: 800px;
+    width: $width-inner;
     position: relative;
     z-index: 2;
     height: 80px;
@@ -104,7 +104,7 @@ export default {
     &.active {
         font-size: 80px;
         font-weight: bold;
-    transition: all 400ms 0ms ease;
+        transition: all 400ms 0ms ease;
     }
 }
 @media screen and (max-width: 768px) {

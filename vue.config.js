@@ -1,15 +1,10 @@
-// const path = require('path')
-// const PrerenderSPAPlugin = require('prerender-spa-plugin')
-
-// module.exports = {
-//     configureWebpack: () => {
-//         return {
-//             plugins: [
-//                 new PrerenderSPAPlugin({
-//                     staticDir: path.join(__dirname, 'dist'),
-//                     routes: [ '/', '/profile', '/work', '/link' ]
-//                 })
-//             ]
-//         }
-//     }
-// }
+module.exports = {
+    css: {
+      loaderOptions: {
+        sass: {
+          data: `@import "@/assets/style/import.scss";`
+        }
+      }
+    }
+  };
+  

@@ -56,19 +56,19 @@ export default {
     &::before {
         transition: all 400ms 0ms ease;
         width: calc(((100vw - 800px) / 2) + 820px);
-        background-color: #666666;
+        background-color: $gray;
         z-index: 2;
         top: 50px;
     }
     &::after {
         transition: all 400ms 500ms ease;
         width: calc(((100vw - 800px) / 2) + 800px);
-        background-color: #FFD800;
+        background-color: $keyColor;
         z-index: 1;
         top: 80px;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle-container {
         width: 100vw;
         padding-bottom: 42px;
@@ -98,13 +98,14 @@ export default {
         transition: all 400ms 300ms ease;
         top: 0;
         height: 72px;
+        background-color: #000;
     }
     &::after {
         transition: all 300ms 0ms ease;
         width: 0;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle-container.small {
         &::before, &::after {
             height: 40px;
@@ -128,7 +129,7 @@ export default {
     position: relative;
     z-index: 3;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle, .pageTitle-sub {
         width: 100vw;
     }
@@ -145,14 +146,14 @@ export default {
     position: relative;
     z-index: 2;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle {
         font-size: 32px;
         height: 32px;
         margin: 0 auto 10px;
     }
 } 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle-sub {
         width: 100vw;
         font-size: 12px;
@@ -166,7 +167,7 @@ export default {
     font-size: 40px;
     height: 40px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
     .pageTitle.small {
         font-weight: bold;
         font-size: 24px;

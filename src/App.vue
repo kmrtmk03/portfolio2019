@@ -39,12 +39,6 @@ export default {
     animation: transitionLeave 0.6s;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-
 #app {
   font-family: 'Helvetica', 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,31 +46,5 @@ export default {
   text-align: center;
   color: #fff;
   background-color: #000;
-}
-
-h1, h2 {
-  margin: 0;
-  font-weight: normal;
-}
-
-ul { 
-    padding: 0px;
-}
-
-li {
-    color: #fff;
-    font-weight: normal;
-    list-style: none;
-    margin-bottom: 20px;
-    font-size: 48px;
-}
-
-a:visited {
-  color: #ffffff;
-}
-
-.list-dec {
-    color: yellow;
-    text-transform: uppercase;
 }
 </style>
