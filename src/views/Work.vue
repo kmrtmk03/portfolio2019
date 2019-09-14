@@ -6,15 +6,89 @@
         <ul class="content-wrap">
             <li class="section-wrap section-wrap-first">
                 <SectionTitle v-bind:sectionTitle='sectionName1st.title' v-bind:className='sectionName1st.class'></sectionTitle>
-                <div class="section-content">
-                    <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
-                        <img class="section-img" src="@/assets/img/dev.jpg">
-                        <span class="section-img-over" :class="{active: isReloaded}"></span>
-                        <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
-                        <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
-                        <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">2019.9</p>
-                    </div>
-                </div>
+                <ul class="sections">
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Portfolio 2019</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Effects Simulation</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Houdini Effects</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Space Ligth Shuttle</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">YOGURT TOWN</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">STAR GROOVE</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Invisible Ball Charenge</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">キム's Blog</p>
+                        </div>
+                    </li>
+                    <li class="section-content">
+                        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+                            <img class="section-img" src="@/assets/img/dev.jpg">
+                            <span class="section-img-over" :class="{active: isReloaded}"></span>
+                            <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
+                            <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
+                            <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">Portfolio 2017</p>
+                        </div>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -40,12 +114,12 @@ export default {
     data: function() {
         return {
             title: 'Work',
-            subTitle: 'Private',
+            subTitle: 'Instaration / web / etc.',
             isOnThumbnail: false,
             isReloaded: false,
             sectionName1st: {
-                title: 'Portfolio site 2019',
-                class: 'portfolioSite2019'
+                title: 'Instaration / Web',
+                class: 'instaration-web'
             }
         }
     },
@@ -69,8 +143,9 @@ export default {
 
 <style scoped lang="scss">
 //variable
-$border-time: 200ms;
-$border-width: 6px;
+$contentwidth: 390px;
+$border-time: 300ms;
+$border-width: 2px;
 $mobile-widthinner: 90vw;
 $mobile-borderwidth: 2px;
 
@@ -81,22 +156,37 @@ $mobile-borderwidth: 2px;
     .content-wrap {
         padding: 100px 0;
     }
+}
+
+.sections {
+    width: $width-inner;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: $breakpointMiddle) {
+    .sections {
+        width: $mobile-widthinner;
+    }
 } 
 
 .section-content {
-    width: $width-inner;
-    margin: 0 auto;
+    width: $contentwidth;
+    &:nth-child(odd) {
+        margin-right: 20px;
+    }
 }
 @media screen and (max-width: $breakpointMiddle) {
     .section-content {
         width: $mobile-widthinner;
+        margin: 0 auto;
     }
 } 
 
 .section-image {
     background-size: contain;
-    width: $width-inner;
-    height: $width-inner * (9 / 16);
+    width: $contentwidth;
+    height: $contentwidth * (9 / 16);
     background-color: $white;
     margin-top: 60px;
     position: relative;
@@ -112,8 +202,8 @@ $mobile-borderwidth: 2px;
 //image
 .section-img {
     display: block;
-    width: $width-inner;
-    height: $width-inner * (9/16);
+    width: $contentwidth;
+    height: $contentwidth * (9/16);
     position: relative;
     border: solid $border-width $white;
     box-sizing: border-box;
@@ -144,7 +234,7 @@ $mobile-borderwidth: 2px;
 //border
 .section-border-side, .section-border-topbottom {
     display: block;
-    width: $width-inner;
+    width: $contentwidth;
     height: 100%;
     position: absolute;
     top: 0;
@@ -228,11 +318,11 @@ $mobile-borderwidth: 2px;
 //Label
 .section-label {
     width: 200px;
-    height: 48px;
-    line-height: 48px;
+    height: 32px;
+    line-height: 32px;
     position: absolute;
-    bottom: 30px;
-    left: -60px;
+    bottom: 20px;
+    left: 20px;
     z-index: 2;
     font-size: $fontsize-small;
     font-weight: bold;
@@ -247,12 +337,12 @@ $mobile-borderwidth: 2px;
         z-index: -1;
     }
     &::before {
-        top: 10px;
+        top: 6px;
         background-color: $keyColor;
     }
     &.onThumbnail::before {
         transition: all 400ms $border-time*4 ease;
-        width: calc(100% + 20px);
+        width: calc(100% + 10px);
     }
     &::after {
         top: 0;
@@ -265,14 +355,16 @@ $mobile-borderwidth: 2px;
 }
 @media screen and (max-width: $breakpointMiddle) {
     .section-label {
-        width: 20vw;
+        text-align: left;
+        padding-left: 10px;
+        width: 150px;
         height: 32px;
         line-height: 32px;
         bottom: 4vw;
         left: -2vw;
         font-size: 12px;
         &::before {
-            top: 2vw;
+            top: 1vw;
         }
         &.onThumbnail::before {
             width: calc(100% + 3vw);

@@ -32,9 +32,8 @@ export default {
       lists: [
         { id: 1, name: 'Home', to: '/', displayName: 'home' },
         { id: 2, name: 'Profile', to: '/profile', displayName: 'profile'  },
-        { id: 3, name: 'Works - Private', to: '/work', displayName: 'works'  },
-        { id: 4, name: 'Works - Company', to: '/work', displayName: 'works'  },
-        { id: 5, name: 'Link', to: '/link', displayName: 'link'  }
+        { id: 3, name: 'Works', to: '/work', displayName: 'works'  },
+        { id: 4, name: 'Link', to: '/link', displayName: 'link'  }
       ],
       currentChoise: ''
     }
@@ -122,8 +121,15 @@ export default {
 
 .list-wrap {
   height: 370px;
-  padding-top: calc((100vh - 480px) / 2);
+  padding-top: calc((100vh - 370px) / 2);
 }
+@media screen and (max-width: $breakpointMiddle) {
+  .list-wrap {
+    height: 240px;
+    padding-top: calc((100vh - 240px) / 2);
+  }
+} 
+
 
 .button-open,
 .button-close {
@@ -175,6 +181,12 @@ export default {
   position: relative;
   z-index: 3;
 }
+@media screen and (max-width: $breakpointMiddle) {
+  .list-child {
+    margin-bottom: 20px;
+    height: 40px;
+  }
+}
 
 .list-link {
   display: inline-block;
@@ -209,6 +221,29 @@ export default {
     color: rgba(255, 255, 255, 0.1);
   }
 }
+@media screen and (max-width: $breakpointMiddle) {
+  .list-link {
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    &:not(.router-link-exact-active) {
+      &::before {
+        height: 30px;
+        bottom: 6px;
+        width: 0px;
+        left: -20px;
+      }
+      &:hover {
+        font-size: 24px;
+        &::before {
+          width: 0;
+        }
+      }
+    }
+  }
+}
+
 .menu-currentPage {
   font-size: 240px;
   display: inline-block;
@@ -218,8 +253,11 @@ export default {
   bottom: -30px;
   color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
-  .menu-currentPage-yellow {
-    color: red;
+}
+@media screen and (max-width: $breakpointMiddle) {
+  .menu-currentPage {
+    display: none;
   }
 }
+
 </style>
