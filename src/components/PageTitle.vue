@@ -148,7 +148,7 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
     .pageTitle {
-        font-size: 32px;
+        font-size: 30px;
         height: 32px;
         margin: 0 auto 10px;
     }

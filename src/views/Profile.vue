@@ -129,7 +129,7 @@ export default {
 @media screen and (max-width: $breakpointMiddle) {
     .list-child {
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 } 
 
@@ -144,7 +144,7 @@ export default {
 @media screen and (max-width: $breakpointMiddle) {
     .list-left {
         width: 90vw;
-        font-size: 22px;
+        font-size: 18px;
         margin: 0 auto;
     }
 } 
@@ -165,6 +165,12 @@ export default {
 .section-detail {
     margin: 60px auto 0;
 }
+@media screen and (max-width: $breakpointMiddle) {
+    .section-detail {
+        margin: 30px auto 0;
+    }
+} 
+
 
 p {
     font-size: $fontsize-small;
@@ -175,6 +181,8 @@ p {
 @media screen and (max-width: $breakpointMiddle) {
     p {
         width: 90vw;
+        font-size: 14px;
+        line-height: 28px;
     }
 } 
 
@@ -192,7 +200,7 @@ p {
 }
 @media screen and (max-width: $breakpointMiddle) {
     .section-wrap-first {
-        padding-top: 150px;
+        padding-top: 100px;
     }
 } 
 

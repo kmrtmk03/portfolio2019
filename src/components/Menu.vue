@@ -138,7 +138,7 @@ export default {
     cursor: pointer;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
   .button-open,
   .button-close {
     font-size: 18px;
@@ -161,7 +161,7 @@ export default {
     top: 20px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpointMiddle) {
   .button-open {
     &.small {
       top: 14px;

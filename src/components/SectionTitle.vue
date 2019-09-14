@@ -71,6 +71,20 @@ export default {
         transition: all 200ms 0ms ease;
     }
 }
+@media screen and (max-width: 768px) {
+    .sectionTitle-container {
+        &::before, &::after {
+            height: 20px;
+        }
+        &::before {
+            top: 20px;
+        }
+        &::after {
+            top: 30px;
+        }
+    }
+} 
+
 .sectionTitle-container.active {
     &::before {
         width: calc(((100vw - 800px) / 2) + 820px);
@@ -84,10 +98,10 @@ export default {
 @media screen and (max-width: 768px) {
     .sectionTitle-container.active {
         &::before {
-            width: 95vw;
+            width: 98vw;
         }
         &::after {
-            width: 90vw;
+            width: 94vw;
         }
     }
 } 
@@ -110,10 +124,11 @@ export default {
 @media screen and (max-width: 768px) {
     .sectionTitle {
         font-weight: bold;
-        font-size: 80px;
+        font-size: 32px;
         width: 90vw;
+        height: 50px;
         &.active {
-            font-size: 80px;
+            font-size: 32px;
         }
     }
 } 
