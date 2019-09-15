@@ -39,15 +39,15 @@ export default {
             top: 0;
         }
         &:nth-child(2) {
-            background-color: $keyColor;
+            background-color: $gray;
             top: 10vh;
         }
         &:nth-child(3) {
-            background-color: $white;
+            background-color: $gray;
             top: 20vh;
         }
         &:nth-child(4) {
-            background-color: $keyColor;
+            background-color: $gray;
             top: 30vh;
         }
         &:nth-child(5) {
@@ -55,23 +55,23 @@ export default {
             top: 40vh;
         }
         &:nth-child(6) {
-            background-color: $keyColor;
+            background-color: $gray;
             top: 50vh;
         }
         &:nth-child(7) {
-            background-color: $white;
+            background-color: $gray;
             top: 60vh;
         }
         &:nth-child(8) {
-            background-color: $keyColor;
+            background-color: $gray;
             top: 70vh;
         }
         &:nth-child(9) {
-            background-color: $white;
+            background-color: $gray;
             top: 80vh;
         }
         &:nth-child(10) {
-            background-color: $keyColor;
+            background-color: $gray;
             top: 90vh;
         }
     }

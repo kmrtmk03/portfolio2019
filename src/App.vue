@@ -13,7 +13,6 @@
   </div>
 </template>
 
-
 <script>
 import 'normalize.css'
 import store from './store'
@@ -79,8 +78,6 @@ export default {
   top: 0;
   left: 0;
 }
-
-
 
 @keyframes transitionLeave {
     0% {
