@@ -9,9 +9,17 @@
 
 <script>
 import 'normalize.css'
+import store from './store'
 
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    const w = window.innerWidth
+    const h = window.innerHeight
+    if(w - h < 0) {
+      store.state.isMobile = true
+    }
+  }
 }
 </script>
 

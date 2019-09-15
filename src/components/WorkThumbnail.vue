@@ -1,6 +1,6 @@
 <template>
     <li class="section-content">
-        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)">
+        <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)" v-on:click='OnOpenModal'>
             <img class="section-img" :src="imgsrcUrl">
             <span class="section-img-over" :class="{active: isReloaded}"></span>
             <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import store from '../store'
 export default {
     name: 'WorkThumbnail',
     data: function() {
@@ -23,7 +24,8 @@ export default {
     },
     props: {
         'workTitle': String,
-        'imgsrc': String
+        'imgsrc': String,
+        'number': Number
     },
     computed: {
         imgsrcUrl: function() {
@@ -43,6 +45,10 @@ export default {
         },
         displayAnim: function() {
             this.isReloaded = true;
+        },
+        OnOpenModal: function () {
+            store.state.worksModalNumber = this.number
+            this.$emit('ModalOpen')
         }
     }
 }

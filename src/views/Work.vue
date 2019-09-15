@@ -3,8 +3,19 @@
         <TransitionMask />
         <Menu />
         <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
+        <WorksModal
+            v-if='isModal'
+            @ModalClose='CloseModal'
+            v-bind:propsTitle='modalContent[this.modalNumber].title'
+            v-bind:propsDate='modalContent[this.modalNumber].date'
+            v-bind:propsImgtopUrl='modalContent[this.modalNumber].imgtopUrl'
+            v-bind:propsTexts='modalContent[this.modalNumber].texts'
+            v-bind:propsSoft='modalContent[this.modalNumber].soft'
+            v-bind:propsLink="modalContent[this.modalNumber].link"
+            v-bind:propsLinkText="modalContent[this.modalNumber].linkText">
+        </WorksModal>
         <div class="wrapper">
-            <ul class="choise">
+            <ul v-if='isMobile' class="choise">
                 <li class="choise-list" :class="{active: isInsta}" v-on:click="IsInsta">Instalation / Web</li>
                 <li class="choise-list" :class="{active: is3dcg}" v-on:click="Is3dcg">3DCG</li>
                 <li class="choise-list choise-list-last" :class="{active: isEtc}" v-on:click="IsEtc">Etc.</li>
@@ -17,7 +28,9 @@
                             v-for='instalationWeb in instalationWebs'
                             :key="instalationWeb.id"
                             :workTitle='instalationWeb.title'
-                            :imgsrc='instalationWeb.imgsrc'>
+                            :imgsrc='instalationWeb.imgsrc'
+                            :number='instalationWeb.number'
+                            @ModalOpen='OpenModal'>
                         </WorkThumbnail>
                     </ul>
                 </li>
@@ -28,7 +41,9 @@
                             v-for='cg in cgs'
                             :key="cg.id"
                             :workTitle='cg.title'
-                            :imgsrc='cg.imgsrc'>
+                            :imgsrc='cg.imgsrc'
+                            :number='cg.number'
+                            @ModalOpen='OpenModal'>
                         </WorkThumbnail>
                     </ul>
                 </li>
@@ -39,7 +54,9 @@
                             v-for='etc in etcs'
                             :key="etc.id"
                             :workTitle='etc.title'
-                            :imgsrc='etc.imgsrc'>
+                            :imgsrc='etc.imgsrc'
+                            :number='etc.number'
+                            @ModalOpen='OpenModal'>
                         </WorkThumbnail>
                     </ul>
                 </li>
@@ -49,11 +66,13 @@
 </template>
 
 <script>
+import store from '../store'
 import Menu from '../components/Menu'
 import TransitionMask from '../components/TransitionMask'
 import PageTitle from '../components/PageTitle.vue'
 import SectionTitle from '../components/SectionTitle'
 import WorkThumbnail from '../components/WorkThumbnail'
+import WorksModal from '../components/WorksModal'
 
 export default {
     name: 'work',
@@ -62,12 +81,15 @@ export default {
         TransitionMask,
         PageTitle,
         SectionTitle,
-        WorkThumbnail
+        WorkThumbnail,
+        WorksModal
     },
     data: function() {
         return {
             title: 'Work',
             subTitle: 'Instaration / web / etc.',
+            isModal: false,
+            modalNumber: 0,
             isInsta: true,
             is3dcg: true,
             isEtc: true,
@@ -85,23 +107,168 @@ export default {
             },
             test: 'Portfolio',
             instalationWebs: [
-                {id: 1, title: 'Portfolio 2019', imgsrc: '_thumbnail-portfolio2019'},
-                {id: 2, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
-                {id: 3, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
+                {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: '_thumbnail-portfolio2019'},
+                {id: 2, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
+                {id: 3, number: 2, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
             ],
             cgs: [
-                {id: 1, title: 'Houdini Smoke', imgsrc: '_thumbnail-houdini_effects-smoke1'},
-                {id: 2, title: 'Houdini Line', imgsrc: '_thumbnail-houdini_effects-line1'},
-                {id: 3, title: 'Modeling', imgsrc: 'Modeling-1'},
-                {id: 4, title: 'Modeling', imgsrc: 'Modeling-2'},
-                {id: 5, title: 'Modeling', imgsrc: 'Modeling-3'},
-                {id: 6, title: 'Modeling', imgsrc: 'Modeling-4'}
+                {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: '_thumbnail-houdini_effects-smoke1'},
+                {id: 2, number: 4, title: 'Houdini Line', imgsrc: '_thumbnail-houdini_effects-line1'},
+                {id: 3, number: 5, title: 'Modeling', imgsrc: 'Modeling-1'},
+                {id: 4, number: 6, title: 'Modeling', imgsrc: 'Modeling-2'},
+                {id: 5, number: 7, title: 'Modeling', imgsrc: 'Modeling-3'},
+                {id: 6, number: 8, title: 'Modeling', imgsrc: 'Modeling-4'}
             ],
             etcs: [
-                {id: 1, title: 'Photobash', imgsrc: 'Photobash-3'},
-                {id: 2, title: 'Photobash', imgsrc: 'Photobash-2'},
-                {id: 3, title: 'Photobash', imgsrc: 'Photobash-1'}
-            ]
+                {id: 1, number: 9, title: 'Photobash', imgsrc: 'Photobash-3'},
+                {id: 2, number: 10, title: 'Photobash', imgsrc: 'Photobash-2'},
+                {id: 3, number: 11, title: 'Photobash', imgsrc: 'Photobash-1'}
+            ],
+            modalContent: [
+                { 
+                    number: 0,
+                    title: 'Portfolio 2019',
+                    date: '2019.9',
+                    imgtopUrl: '_thumbnail-portfolio2019',
+                    texts: [
+                        {id: 1, content: '自分のサイトを作るため、1年半ぶりにwebを制作。デザイン2日、実装2週間。'},
+                        {id: 2, content: '読書が好きなので、栞を差し込むようなアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装がメイン。'},
+                        {id: 3, content: 'FTPソフトではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、勉強に時間がかかりました。'},
+                    ],
+                    soft: 'Vue.js',
+                    link: 'https://kmrtmk-portfolio2019.herokuapp.com/',
+                    linkText: 'Portfolio2019（トップに戻るだけです…）'
+                },
+                { 
+                    number: 1,
+                    title: 'Effects Simulation',
+                    date: '2018.11',
+                    imgtopUrl: '_thumbnail-effect_simulation',
+                    texts: [
+                        {id: 1, content: 'イメージソースが開催する「ProtoTypes」で出展するために作成。'},
+                        {id: 2, content: '構想などの時間がかかり、Houdiniでのエフェクト制作が1週間、Unreal Engine4(以下UE4)での開発が4日と悔いの残る作品。ポイントはHoudiniで作成した流体シミュレーションをVertext Animation Texture(以下VAT)に書き出し、UE4でリアルタイムに再生を試みた箇所。'}
+                    ],
+                    soft: 'Unreal Engine4, Houdini',
+                    link: ''
+                },
+                { 
+                    number: 2,
+                    title: 'Invisibleball',
+                    date: '2017.10',
+                    imgtopUrl: '_thumbnail-invisibleball',
+                    texts: [
+                        {id: 1, content: '目が不自由な方が行うスポーツ「ゴールボール」をデジタルで再現した施策。2人のプレイヤーが攻守に別れ、オフェンス側のプレイヤーはコントローラーから球種とスピードを選択し、ディフェンス側のプレイヤーは15個のスピーカーから鳴る音を頼りにボールを止めます。'},
+                        {id: 2, content: 'この施策は合計3回行われ、1回目はコントローラーのアプリを開発、2回目はメンテナンス・保守、3回目はUnlimited Handという筋電位センサーとの連携を追加開発しました。'}
+                    ],
+                    soft: 'Javascript(EJS / PostCss / ES6 / webpack), Unity',
+                    link: ''
+                },
+                { 
+                    number: 3,
+                    title: 'Houdini Smoke',
+                    date: '2017.10',
+                    imgtopUrl: '_thumbnail-houdini_effects-smoke1',
+                    texts: [
+                        {id: 1, content: 'Houdiniの流体シミュレーションを使って制作した静止画です。実際の煙では見ない淡い色を使用してCG感を出しました。'}
+                    ],
+                    soft: 'Houdini',
+                    link: ''
+                },
+                { 
+                    number: 4,
+                    title: 'Houdini Line',
+                    date: '2017.10',
+                    imgtopUrl: '_thumbnail-houdini_effects-line1',
+                    texts: [
+                        {id: 1, content: 'Houdiniの流体シミュレーションからVecter Fieldを作成し、それを元に細い円柱のポリゴンを動かし力の流れの視覚化をしました。'}
+                    ],
+                    soft: 'Houdini',
+                    link: ''
+                },
+                { 
+                    number: 5,
+                    title: 'Modeling',
+                    date: '2017.10',
+                    imgtopUrl: 'Modeling-1',
+                    texts: [
+                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
+                    ],
+                    soft: 'ZBrush / Modo / Substance Painter',
+                    link: ''
+                },
+                { 
+                    number: 6,
+                    title: 'Modeling',
+                    date: '2017.10',
+                    imgtopUrl: 'Modeling-2',
+                    texts: [
+                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
+                    ],
+                    soft: 'ZBrush / Modo / Substance Painter',
+                    link: ''
+                },
+                { 
+                    number: 7,
+                    title: 'Modeling',
+                    date: '2017.10',
+                    imgtopUrl: 'Modeling-3',
+                    texts: [
+                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
+                    ],
+                    soft: 'Houdini / Substance Painter / Modo',
+                    link: ''
+                },
+                { 
+                    number: 8,
+                    title: 'Modeling',
+                    date: '2017.10',
+                    imgtopUrl: 'Modeling-4',
+                    texts: [
+                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
+                    ],
+                    soft: 'ZBrush / Modo / Substance Painter',
+                    link: ''
+                },
+                { 
+                    number: 9,
+                    title: 'Photobash',
+                    date: '2019.1',
+                    imgtopUrl: 'Photobash-3',
+                    texts: [
+                        {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
+                    ],
+                    soft: 'Photoshop',
+                    link: ''
+                },
+                { 
+                    number: 10,
+                    title: 'Photobash',
+                    date: '2019.1',
+                    imgtopUrl: 'Photobash-2',
+                    texts: [
+                        {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
+                    ],
+                    soft: 'Photoshop',
+                    link: ''
+                },
+                { 
+                    number: 11,
+                    title: 'Photobash',
+                    date: '2018.12',
+                    imgtopUrl: 'Photobash-1',
+                    texts: [
+                        {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
+                    ],
+                    soft: 'Photoshop',
+                    link: ''
+                }
+            ],
+            testProps: 'Photobash-3'
+        }
+    },
+    computed: {
+        isMobile: function() {
+            return store.state.isMobile
         }
     },
     mounted() {
@@ -110,6 +277,8 @@ export default {
                 this.displayAnim()
             }, 3000)
         })
+
+        this.modalNumber = store.state.worksModalNumber
     },
     methods: {
         displayAnim: function() {
@@ -123,6 +292,13 @@ export default {
         },
         IsEtc: function() {
             this.isEtc = !this.isEtc
+        },
+        OpenModal: function() {
+            this.modalNumber = store.state.worksModalNumber
+            this.isModal = true
+        },
+        CloseModal: function() {
+            this.isModal = false
         }
     }
 }

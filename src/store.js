@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     headSmall: false,
-    currentPage: 'Top'
+    currentPage: 'Top',
+    isMobile: false,
+    worksModalNumber: 0
   },
   mutations: {
 
