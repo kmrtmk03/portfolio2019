@@ -1,7 +1,9 @@
 <template>
     <div class="container">
-        <TransitionMask />
-        <Menu />
+        <!-- <TransitionMask /> -->
+        <!-- <Menu /> -->
+        <!-- <MenuButton></MenuButton>
+        <MenuModal v-if='isMenuOpen'></MenuModal> -->
         <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
         <div class="section-wrap section-wrap-first">
             <SectionTitle v-bind:sectionTitle='arry_1st.title' v-bind:className='arry_1st.className'></sectionTitle>
@@ -47,18 +49,22 @@
 
 <script>
 import store from '../store'
-import Menu from '../components/Menu'
+// import Menu from '../components/Menu'
+// import MenuButton from '../components/MenuButton'
+// import MenuModal from '../components/MenuModal'
 import PageTitle from '../components/PageTitle.vue'
 import SectionTitle from '../components/SectionTitle.vue'
-import TransitionMask from '../components/TransitionMask'
+// import TransitionMask from '../components/TransitionMask'
 
 export default {
     name: 'profile',
     components: {
-        Menu,
+        // Menu,
+        // MenuButton,
+        // MenuModal,
         PageTitle,
         SectionTitle,
-        TransitionMask
+        // TransitionMask
     },
     data: function() {
         return {
@@ -101,6 +107,11 @@ export default {
                 { id: 4, title: 'アイドル', detail: 'ハロー!プロジェクトと日向坂46に夢中。<br>疲れた時は°C-ute、楽しい時はアンジュルムを嗜む。<br>推しは和田桜子（こぶしファクトリー）と齊藤京子（日向坂46）。'},
                 { id: 5, title: '純喫茶', detail: 'クリームソーダを求めて。本を読みながらゆったりする時間が至福。<br>阿佐ヶ谷のgionと吉祥寺のゆりあぺむぺるが特にお気に入り。'}
             ]
+        }
+    },
+    computed: {
+        isMenuOpen: function () {
+            return store.state.isMenu
         }
     },
     mounted() {

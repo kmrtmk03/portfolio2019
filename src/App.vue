@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+    <MenuButton @MenuOpen='MenuOpen'></MenuButton>
+    <transition name="menu">
+      <MenuModal v-if='isMenuOpen' @MenuClose='MenuClose' @OnOver="OnPageOver"></MenuModal>
+    </transition>
+    <transition name="overPage">
+      <OnPageOver v-if="isOnOver"></OnPageOver>
+    </transition>
     <transition name="page">
       <router-view/>
     </transition>
@@ -10,14 +17,45 @@
 <script>
 import 'normalize.css'
 import store from './store'
+import MenuButton from './components/MenuButton'
+import MenuModal from './components/MenuModal'
+import OnPageOver from './components/OnPageOver'
 
 export default {
   name: 'App',
+  components: {
+    MenuButton,
+    MenuModal,
+    OnPageOver
+  },
+  data: function() {
+    return {
+      isMenuOpen: false,
+      isOnOver: false
+    }
+  },
   mounted() {
     const w = window.innerWidth
     const h = window.innerHeight
     if(w - h < 0) {
       store.state.isMobile = true
+    }
+  },
+  methods: {
+    MenuOpen: function () {
+      this.isMenuOpen = true
+    },
+    MenuClose: function() {
+      this.isMenuOpen = false
+    },
+    OnPageOver: function() {
+      this.isOnOver = true
+      setTimeout(() => {
+        this.isMenuOpen = false
+      }, 1000)
+      setTimeout(() => {
+      this.isOnOver = false
+      }, 1500)
     }
   }
 }
@@ -26,6 +64,15 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
+
+//Menu Transition
+.menu-enter-active, .menu-leave-active {
+  transition: all 0.5s ease;
+}
+.menu-enter, .menu-leave-to {
+  transform: translateY(-100vh);
+}
+
 .container {
   background-color: #000;
   position: relative;
@@ -33,18 +80,20 @@ export default {
   left: 0;
 }
 
+
+
 @keyframes transitionLeave {
     0% {
       opacity: 1;
-      z-index:1001;
+      z-index:11;
     }
     100% {
-      opacity: 0;
-      z-index:1001;
+      opacity: 1;
+      z-index:11;
     }
 }
 .page-leave-active {
-    animation: transitionLeave 0.6s;
+    animation: transitionLeave 0.0s;
 }
 
 #app {

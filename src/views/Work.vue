@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <TransitionMask />
-        <Menu />
+        <!-- <TransitionMask />
+        <Menu /> -->
         <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
         <span class="over" :class="{isOver: isOver}"></span>
         <WorksModal
@@ -17,9 +17,9 @@
         </WorksModal>
         <div class="wrapper">
             <ul v-if='isMobile' class="choise">
-                <li class="choise-list" :class="{active: isInsta}" v-on:click="IsInsta">Instalation / Web</li>
-                <li class="choise-list" :class="{active: is3dcg}" v-on:click="Is3dcg">3DCG</li>
-                <li class="choise-list choise-list-last" :class="{active: isEtc}" v-on:click="IsEtc">Etc.</li>
+                <li class="choise-list" :class="{active: isInsta}" v-on:click="IsInsta">{{sectionName1st.title}}</li>
+                <li class="choise-list" :class="{active: is3dcg}" v-on:click="Is3dcg">{{sectionName2nd.title}}</li>
+                <li class="choise-list choise-list-last" :class="{active: isEtc}" v-on:click="IsEtc">{{sectionName3rd.title}}</li>
             </ul>
             <ul class="content-wrap">
                 <li class="section-wrap section-wrap-first" v-show="this.isInsta">
@@ -68,8 +68,8 @@
 
 <script>
 import store from '../store'
-import Menu from '../components/Menu'
-import TransitionMask from '../components/TransitionMask'
+// import Menu from '../components/Menu'
+// import TransitionMask from '../components/TransitionMask'
 import PageTitle from '../components/PageTitle.vue'
 import SectionTitle from '../components/SectionTitle'
 import WorkThumbnail from '../components/WorkThumbnail'
@@ -78,8 +78,8 @@ import WorksModal from '../components/WorksModal'
 export default {
     name: 'work',
     components: {
-        Menu,
-        TransitionMask,
+        // Menu,
+        // TransitionMask,
         PageTitle,
         SectionTitle,
         WorkThumbnail,

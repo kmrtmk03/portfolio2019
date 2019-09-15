@@ -8,7 +8,8 @@ export default new Vuex.Store({
     headSmall: false,
     currentPage: 'Top',
     isMobile: false,
-    worksModalNumber: 0
+    worksModalNumber: 0,
+    isMenu: false
   },
   mutations: {
 

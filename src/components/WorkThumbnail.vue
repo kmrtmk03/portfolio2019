@@ -36,7 +36,7 @@ export default {
         this.$nextTick(function () {
             setTimeout(() => {
                 this.displayAnim()
-            }, 3000)
+            }, 3500)
         })
     },
     methods: {
