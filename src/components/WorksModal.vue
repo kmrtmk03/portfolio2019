@@ -185,14 +185,13 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
     .close {
-        padding-bottom: 50px;
+        padding-bottom: 250px;
         &-button {
             font-size: 20px;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
             width: 100%;
-
         }
     }
 } 
