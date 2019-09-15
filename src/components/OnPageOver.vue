@@ -4,6 +4,12 @@
       <span class="over-block"></span>
       <span class="over-block"></span>
       <span class="over-block"></span>
+      <span class="over-block"></span>
+      <span class="over-block"></span>
+      <span class="over-block"></span>
+      <span class="over-block"></span>
+      <span class="over-block"></span>
+      <span class="over-block"></span>
   </div>
 </template>
 
@@ -26,7 +32,7 @@ export default {
         display: block;
         position: fixed;
         width: 100vw;
-        height: 25vh;
+        height: 10vh;
         left: 0;
         &:nth-child(1) {
             background-color: $gray;
@@ -34,15 +40,39 @@ export default {
         }
         &:nth-child(2) {
             background-color: $keyColor;
-            top: 25vh;
+            top: 10vh;
         }
         &:nth-child(3) {
             background-color: $white;
-            top: 50vh;
+            top: 20vh;
         }
         &:nth-child(4) {
             background-color: $keyColor;
-            top: 75vh;
+            top: 30vh;
+        }
+        &:nth-child(5) {
+            background-color: $gray;
+            top: 40vh;
+        }
+        &:nth-child(6) {
+            background-color: $keyColor;
+            top: 50vh;
+        }
+        &:nth-child(7) {
+            background-color: $white;
+            top: 60vh;
+        }
+        &:nth-child(8) {
+            background-color: $keyColor;
+            top: 70vh;
+        }
+        &:nth-child(9) {
+            background-color: $white;
+            top: 80vh;
+        }
+        &:nth-child(10) {
+            background-color: $keyColor;
+            top: 90vh;
         }
     }
 }
@@ -62,18 +92,31 @@ export default {
         &:nth-child(4) {
             transition: all 800ms 400ms ease;
         }
+        &:nth-child(5) {
+            transition: all 600ms 300ms ease;
+        }
+        &:nth-child(6) {
+            transition: all 400ms 650ms ease;
+        }
+        &:nth-child(7) {
+            transition: all 600ms 100ms ease;
+        }
+        &:nth-child(8) {
+            transition: all 400ms 550ms ease;
+        }
+        &:nth-child(9) {
+            transition: all 350ms 400ms ease;
+        }
+        &:nth-child(10) {
+            transition: all 900ms 200ms ease;
+        }
     }
 }
 .over-container.overPage-enter,
 .over-container.overPage-leave-to {  
     // transform: translateX(-100vw);
     .over-block {
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(4) {
-            transform: translateX(-100vw);
-        }
+        transform: translateX(-100vw);
     }
 }
 

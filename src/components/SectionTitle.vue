@@ -22,7 +22,7 @@ export default {
         this.$nextTick(function () {
             setTimeout(() => {
                 this.titleAnim()
-            }, 2500)
+            }, 3000)
         })
     },
     created() {

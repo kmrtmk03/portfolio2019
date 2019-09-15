@@ -23,6 +23,7 @@
 
 <script>
 import store from '../store'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 export default {
   name: 'MenuModal',
@@ -46,8 +47,15 @@ export default {
       return store.state.currentPage
     }
   },
+  created() {
+      const modal = document.querySelector('.menu-wrap')
+      disableBodyScroll(modal)
+  },
   mounted()  {
       this.isActive = true
+  },
+  beforeDestroy() {
+      clearAllBodyScrollLocks()
   },
   methods: {
     openWrapper: function () {

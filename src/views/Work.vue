@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-        <!-- <TransitionMask />
-        <Menu /> -->
         <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
         <span class="over" :class="{isOver: isOver}"></span>
         <WorksModal
@@ -302,11 +300,11 @@ export default {
 
             setTimeout(() => {
                 this.isModal = true
-            }, 400)
+            }, 800)
 
             setTimeout(() => {
                 this.isOver = false
-            }, 600)
+            }, 1000)
 
         },
         CloseModal: function() {
@@ -314,11 +312,11 @@ export default {
 
             setTimeout(() => {
                 this.isModal = false
-            }, 400)
+            }, 800)
 
             setTimeout(() => {
                 this.isOver = false
-            }, 600)
+            }, 1000)
         }
     }
 }
@@ -421,9 +419,9 @@ $mobile-borderwidth: 2px;
     top: 0;
     left: 0;
     z-index: 300;
-    transition: all 400ms 0ms ease;
+    transition: all 600ms 0ms ease;
     &.isOver {
-        transition: all 400ms 0ms ease;
+        transition: all 600ms 0ms ease;
         width: 100vw;
     }
 }

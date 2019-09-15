@@ -49,7 +49,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.isScroll = true
-        }, 400)
+        }, 600)
     },
     created() {
         const modal = document.querySelector('.container-worksmodal')
