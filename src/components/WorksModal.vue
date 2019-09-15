@@ -1,5 +1,5 @@
 <template>
-    <div class="container-worksmodal">
+    <div class="container-worksmodal" :class="{scroll: isScroll }">
         <div class="wrapper">
             <div class="title">
                 <h3 class="title-title">{{propsTitle}}</h3>
@@ -28,7 +28,8 @@ export default {
     name: 'WorksModal',
     data: function() {
         return {
-            isLink: true
+            isLink: true,
+            isScroll: false
         }
     },
     props: {
@@ -45,6 +46,11 @@ export default {
             return require("../assets/img/" + this.propsImgtopUrl + ".jpg")
         }
     },
+    mounted() {
+        setTimeout(() => {
+            this.isScroll = true
+        }, 400)
+    },
     created() {
         const modal = document.querySelector('.container-worksmodal')
         disableBodyScroll(modal)
@@ -59,6 +65,9 @@ export default {
     methods: {
         OnCloseModal: function () {
             this.$emit('ModalClose')
+            setTimeout(() => {
+                this.isScroll = false
+            }, 1000)
         }
     }
 }
@@ -68,12 +77,13 @@ export default {
 .container-worksmodal {
     width: 100vw;
     height: 100vh;
-    overflow-y: scroll;
     position: fixed;
     z-index: 200;
     background-color: #000;
+    &.scroll {
+        overflow-y: scroll;
+    }
 }
-
 .wrapper {
     width: 800px;
     margin: 0 auto;

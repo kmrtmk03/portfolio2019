@@ -3,6 +3,7 @@
         <TransitionMask />
         <Menu />
         <PageTitle v-bind:pageTitle='title' v-bind:pageSubTitle='subTitle'></PageTitle>
+        <span class="over" :class="{isOver: isOver}"></span>
         <WorksModal
             v-if='isModal'
             @ModalClose='CloseModal'
@@ -89,6 +90,7 @@ export default {
             title: 'Work',
             subTitle: 'Instaration / web / etc.',
             isModal: false,
+            isOver: false,
             modalNumber: 0,
             isInsta: true,
             is3dcg: true,
@@ -295,10 +297,28 @@ export default {
         },
         OpenModal: function() {
             this.modalNumber = store.state.worksModalNumber
-            this.isModal = true
+            
+            this.isOver = true
+
+            setTimeout(() => {
+                this.isModal = true
+            }, 400)
+
+            setTimeout(() => {
+                this.isOver = false
+            }, 600)
+
         },
         CloseModal: function() {
-            this.isModal = false
+            this.isOver = true
+
+            setTimeout(() => {
+                this.isModal = false
+            }, 400)
+
+            setTimeout(() => {
+                this.isOver = false
+            }, 600)
         }
     }
 }
@@ -392,7 +412,21 @@ $mobile-borderwidth: 2px;
     }
 }
 
-
+.over {
+    display: block;
+    width: 0;
+    height: 100vh;
+    background-color: $gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    transition: all 400ms 0ms ease;
+    &.isOver {
+        transition: all 400ms 0ms ease;
+        width: 100vw;
+    }
+}
 
 .content-wrap {
     padding: 50px 0 200px;
