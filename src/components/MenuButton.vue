@@ -44,6 +44,9 @@ export default {
         height: 24px;
         line-height: 24px;
         text-align: right;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 @media screen and (max-width: $breakpointMiddle) {

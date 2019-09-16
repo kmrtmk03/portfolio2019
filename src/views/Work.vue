@@ -11,7 +11,8 @@
             v-bind:propsTexts='modalContent[this.modalNumber].texts'
             v-bind:propsSoft='modalContent[this.modalNumber].soft'
             v-bind:propsLink="modalContent[this.modalNumber].link"
-            v-bind:propsLinkText="modalContent[this.modalNumber].linkText">
+            v-bind:propsLinkText="modalContent[this.modalNumber].linkText"
+            v-bind:propsImages="modalContent[this.modalNumber].imgs">
         </WorksModal>
         <div class="wrapper">
             <ul v-if='isMobile' class="choise">
@@ -66,8 +67,6 @@
 
 <script>
 import store from '../store'
-// import Menu from '../components/Menu'
-// import TransitionMask from '../components/TransitionMask'
 import PageTitle from '../components/PageTitle.vue'
 import SectionTitle from '../components/SectionTitle'
 import WorkThumbnail from '../components/WorkThumbnail'
@@ -76,8 +75,6 @@ import WorksModal from '../components/WorksModal'
 export default {
     name: 'work',
     components: {
-        // Menu,
-        // TransitionMask,
         PageTitle,
         SectionTitle,
         WorkThumbnail,
@@ -114,15 +111,10 @@ export default {
             cgs: [
                 {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: '_thumbnail-houdini_effects-smoke1'},
                 {id: 2, number: 4, title: 'Houdini Line', imgsrc: '_thumbnail-houdini_effects-line1'},
-                {id: 3, number: 5, title: 'Modeling', imgsrc: 'Modeling-1'},
-                {id: 4, number: 6, title: 'Modeling', imgsrc: 'Modeling-2'},
-                {id: 5, number: 7, title: 'Modeling', imgsrc: 'Modeling-3'},
-                {id: 6, number: 8, title: 'Modeling', imgsrc: 'Modeling-4'}
+                {id: 3, number: 5, title: 'Modeling', imgsrc: 'Modeling-1'}
             ],
             etcs: [
-                {id: 1, number: 9, title: 'Photobash', imgsrc: 'Photobash-3'},
-                {id: 2, number: 10, title: 'Photobash', imgsrc: 'Photobash-2'},
-                {id: 3, number: 11, title: 'Photobash', imgsrc: 'Photobash-1'}
+                {id: 1, number: 6, title: 'Photobash', imgsrc: 'Photobash-3'}
             ],
             modalContent: [
                 { 
@@ -137,7 +129,7 @@ export default {
                     ],
                     soft: 'Vue.js',
                     link: 'https://kmrtmk-portfolio2019.herokuapp.com/',
-                    linkText: 'Portfolio2019（トップに戻るだけです…）'
+                    linkText: 'Portfolio2019'
                 },
                 { 
                     number: 1,
@@ -149,7 +141,8 @@ export default {
                         {id: 2, content: '構想などの時間がかかり、Houdiniでのエフェクト制作が1週間、Unreal Engine4(以下UE4)での開発が4日と悔いの残る作品。ポイントはHoudiniで作成した流体シミュレーションをVertext Animation Texture(以下VAT)に書き出し、UE4でリアルタイムに再生を試みた箇所。'}
                     ],
                     soft: 'Unreal Engine4, Houdini',
-                    link: ''
+                    link: '',
+                    imgs: []
                 },
                 { 
                     number: 2,
@@ -161,7 +154,8 @@ export default {
                         {id: 2, content: 'この施策は合計3回行われ、1回目はコントローラーのアプリを開発、2回目はメンテナンス・保守、3回目はUnlimited Handという筋電位センサーとの連携を追加開発しました。'}
                     ],
                     soft: 'Javascript(EJS / PostCss / ES6 / webpack), Unity',
-                    link: ''
+                    link: '',
+                    imgs: []
                 },
                 { 
                     number: 3,
@@ -172,7 +166,8 @@ export default {
                         {id: 1, content: 'Houdiniの流体シミュレーションを使って制作した静止画です。実際の煙では見ない淡い色を使用してCG感を出しました。'}
                     ],
                     soft: 'Houdini',
-                    link: ''
+                    link: '',
+                    imgs: []
                 },
                 { 
                     number: 4,
@@ -183,7 +178,8 @@ export default {
                         {id: 1, content: 'Houdiniの流体シミュレーションからVecter Fieldを作成し、それを元に細い円柱のポリゴンを動かし力の流れの視覚化をしました。'}
                     ],
                     soft: 'Houdini',
-                    link: ''
+                    link: '',
+                    imgs: []
                 },
                 { 
                     number: 5,
@@ -194,43 +190,15 @@ export default {
                         {id: 1, content: 'キャラクターのモデリングを行いました。'}
                     ],
                     soft: 'ZBrush / Modo / Substance Painter',
-                    link: ''
+                    link: '',
+                    imgs: [
+                        {id:1, filename: 'Modeling-2'},
+                        {id:2, filename: 'Modeling-3'},
+                        {id:3, filename: 'Modeling-4'}
+                    ]
                 },
                 { 
                     number: 6,
-                    title: 'Modeling',
-                    date: '2017.10',
-                    imgtopUrl: 'Modeling-2',
-                    texts: [
-                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
-                    ],
-                    soft: 'ZBrush / Modo / Substance Painter',
-                    link: ''
-                },
-                { 
-                    number: 7,
-                    title: 'Modeling',
-                    date: '2017.10',
-                    imgtopUrl: 'Modeling-3',
-                    texts: [
-                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
-                    ],
-                    soft: 'Houdini / Substance Painter / Modo',
-                    link: ''
-                },
-                { 
-                    number: 8,
-                    title: 'Modeling',
-                    date: '2017.10',
-                    imgtopUrl: 'Modeling-4',
-                    texts: [
-                        {id: 1, content: 'キャラクターのモデリングを行いました。'}
-                    ],
-                    soft: 'ZBrush / Modo / Substance Painter',
-                    link: ''
-                },
-                { 
-                    number: 9,
                     title: 'Photobash',
                     date: '2019.1',
                     imgtopUrl: 'Photobash-3',
@@ -238,29 +206,11 @@ export default {
                         {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
                     ],
                     soft: 'Photoshop',
-                    link: ''
-                },
-                { 
-                    number: 10,
-                    title: 'Photobash',
-                    date: '2019.1',
-                    imgtopUrl: 'Photobash-2',
-                    texts: [
-                        {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
-                    ],
-                    soft: 'Photoshop',
-                    link: ''
-                },
-                { 
-                    number: 11,
-                    title: 'Photobash',
-                    date: '2018.12',
-                    imgtopUrl: 'Photobash-1',
-                    texts: [
-                        {id: 1, content: '冬休みで暇だったので、試してみたPhotobashです。'}
-                    ],
-                    soft: 'Photoshop',
-                    link: ''
+                    link: '',
+                    imgs: [
+                        {id: 1, filename: 'Photobash-2'},
+                        {id: 2, filename: 'Photobash-1'}
+                    ]
                 }
             ],
             testProps: 'Photobash-3'

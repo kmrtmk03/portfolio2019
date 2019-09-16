@@ -8,11 +8,16 @@
             <img class="image-top" :src="imgtopUrl">
             <div class="explanation">
                 <p class="explanation-text" v-for='text in propsTexts' v-bind:key='text.id' v-html='text.content'></p>
-                <p class="explanation-soft"><span class="explanation-soft-static">開発環境：</span>{{propsSoft}}</p>
+                <p class="explanation-soft"><span class="explanation-soft-static">開発環境・ソフト：</span>{{propsSoft}}</p>
                 <p v-if='isLink' class="explanation-link">
                     <span class="explanation-link-static">リンク：</span>
                     <a class="explanation-link-dynamic" v-bind:href="propsLink" target="_blank">{{propsLinkText}}</a>
                 </p>
+                <ul v-if='isImgs' class="explanation-imgList">
+                    <li class="explanation-imgList-child" v-for='img in propsImages' v-bind:key='img.id'>
+                        <img class="explanation-imgList-image" :src='require("../assets/img/" + img.filename + ".jpg")'>
+                    </li>
+                </ul>
             </div>
             <div class="close">
                 <div class="close-button" v-on:click='OnCloseModal'>Close</div>
@@ -29,6 +34,8 @@ export default {
     data: function() {
         return {
             isLink: true,
+            isImgs: true,
+            imgsCount: [],
             isScroll: false
         }
     },
@@ -39,7 +46,8 @@ export default {
         'propsTexts': Array,
         'propsSoft': String,
         'propsLink': String,
-        'propsLinkText': String
+        'propsLinkText': String,
+        'propsImages': Array
     },
     computed: {
         imgtopUrl: function() {
@@ -55,8 +63,15 @@ export default {
         const modal = document.querySelector('.container-worksmodal')
         disableBodyScroll(modal)
 
+        //リンク記述のHTMLを表示するか
         if(this.propsLink == '' || this.propsLinkText == '') {
             this.isLink = false
+        }
+
+        //画像リストのHTMLを表示するか
+        this.imgsCount = this.propsImages
+        if(this.imgsCount.length == 0) {
+            this.isImgs = false
         }
     },
     beforeDestroy() {
@@ -85,33 +100,38 @@ export default {
     }
 }
 .wrapper {
-    width: 800px;
-    margin: 0 auto;
+    width: 100vw;
 }
-@media screen and (max-width: $breakpointMiddle) {
-    .wrapper {
-        width: 90vw;
-    }
-} 
-
-.image-top {
-    display: block;
-    width: 800px;
-    height: calc(800px * (9/16));
-    margin-bottom: 60px;
-}
-@media screen and (max-width: $breakpointMiddle) {
-    .image-top {
-        width: 90vw;
-        height: calc(90vw * (9/16));
-        margin-bottom: 60px;
-    }
-} 
-
 
 .title {
-    padding-top: 100px;
+    padding-top: 20px;
     margin-bottom: 60px;
+    position: relative;
+    &::before, &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 600px;
+        height: 60px;
+        left: 0;
+    }
+    &::before {
+        background-color: $gray;
+        bottom: -5px;
+        z-index: -1;
+        width: calc(800px + ((100vw - 800px) / 2));
+    }
+    &::after {
+        background-color: $keyColor;
+        bottom: -15px;
+        z-index: -2;
+        width: calc(800px + ((100vw - 800px) / 2) + 20px);
+    }
+    &-title, &-date {
+        text-align: left;
+        width: 800px;
+        margin: 0 auto;
+    }
     &-title {
         font-weight: bold;
         font-size: 80px;
@@ -122,17 +142,50 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
     .title {
-        padding-top: 50px;
-        margin-bottom: 60px;
+        padding-top: 20px;
+        margin-bottom: 40px;
+        &::before, &::after {
+            height: 26px;
+        }
+        &::before {
+            bottom: -2px;
+            z-index: -1;
+            width: 90vw;
+        }
+        &::after {
+            bottom: -8px;
+            z-index: -2;
+            width: 95vw;
+        }
+        &-title, &-date {
+            width: 90vw;
+        }
         &-title {
-            font-weight: bold;
             font-size: 24px;
         }
         &-date {
-            font-size: 16px;
+            font-size: 12px;
         }
     }
 } 
+
+.image-top {
+    display: block;
+    border: solid 2px $gray;
+    box-sizing: border-box;
+    height: calc(800px * (9/16));
+    margin-bottom: 60px;
+    width: 800px;
+    margin: 0 auto;
+}
+@media screen and (max-width: $breakpointMiddle) {
+    .image-top {
+        width: 90vw;
+        height: calc(90vw * (9/16));
+        margin-bottom: 40px;
+    }
+} 
+
 
 
 .explanation {
@@ -148,16 +201,16 @@ export default {
         }
     }
     &-soft {
-        margin: 40px 0 20px;
+        font-size: 16px;
+        margin: 40px 0 10px;
         &-static {
             display: inline-block;
-            font-weight: bold;
             margin-right: 13px;
         }
     }
     &-link {
+        font-size: 16px;
         &-static {
-            font-weight: bold;
             margin-right: 30px;
         }
         &-dynamic {
@@ -165,17 +218,49 @@ export default {
             border-bottom: solid 1px $keyColor;
         }
     }
+    &-imgList {
+        &-child {
+            width: 100%;
+            height: calc(800px * 9 / 16);
+        }
+        &-image {
+            box-sizing: border-box;
+            border: solid 2px $gray;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 @media screen and (max-width: $breakpointMiddle) {
     .explanation {
-        width: 100%;
+        width: 90vw;
         margin-bottom: 100px;
         &-text {
             font-size: 14px;
             line-height: 28px;
         }
         &-soft {
-            margin-top: 40px;
+            font-size: 14px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        &-link {
+            font-size: 14px;
+            &-static {
+                margin-right: 20px;
+            }
+            &-dynamic {
+                border-bottom: solid 1px $keyColor;
+            }
+        }
+        &-imgList {
+            &-child {
+                height: calc(90vw * 9 / 16);
+            }
+            &-image {
+                height: 100%;
+            }
         }
     }
 } 
@@ -190,7 +275,9 @@ export default {
         line-height: 40px;
         margin: 0 auto;
         width: 300px;
-
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 @media screen and (max-width: $breakpointMiddle) {
@@ -200,8 +287,7 @@ export default {
             font-size: 20px;
             height: 50px;
             line-height: 50px;
-            margin: 0 auto;
-            width: 100%;
+            width: 90vw;
         }
     }
 } 

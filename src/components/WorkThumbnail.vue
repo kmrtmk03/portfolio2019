@@ -84,6 +84,9 @@ $mobile-borderwidth: 2px;
     background-color: $white;
     margin-top: 0px;
     position: relative;
+    &:hover {
+        cursor: pointer;
+    }
 }
 @media screen and (max-width: $breakpointMiddle) {
     .section-image {
