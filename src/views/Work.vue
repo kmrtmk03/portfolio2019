@@ -107,10 +107,12 @@ export default {
                 {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: '_thumbnail-portfolio2019'},
                 {id: 2, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
                 {id: 3, number: 2, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
+                {id: 4, number: 7, title: 'Blog site', imgsrc: 'blog-1'},
+                {id: 5, number: 8, title: 'Portfolio 2017', imgsrc: 'portfolio2017-1'},
             ],
             cgs: [
-                {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: '_thumbnail-houdini_effects-smoke1'},
-                {id: 2, number: 4, title: 'Houdini Line', imgsrc: '_thumbnail-houdini_effects-line1'},
+                {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: 'houdini_smoke-1'},
+                {id: 2, number: 4, title: 'Houdini Line', imgsrc: 'houdini_line-1'},
                 {id: 3, number: 5, title: 'Modeling', imgsrc: 'Modeling-1'}
             ],
             etcs: [
@@ -167,7 +169,12 @@ export default {
                     ],
                     soft: 'Houdini',
                     link: '',
-                    imgs: []
+                    imgs: [
+                        {id: 1, filename: 'houdini_smoke-2'},
+                        {id: 2, filename: 'houdini_smoke-3'},
+                        {id: 3, filename: 'houdini_smoke-4'},
+                        {id: 4, filename: 'houdini_smoke-5'}
+                    ]
                 },
                 { 
                     number: 4,
@@ -179,7 +186,9 @@ export default {
                     ],
                     soft: 'Houdini',
                     link: '',
-                    imgs: []
+                    imgs: [
+                        {id:1, filename: 'houdini_line-2'}
+                    ]
                 },
                 { 
                     number: 5,
@@ -210,6 +219,35 @@ export default {
                     imgs: [
                         {id: 1, filename: 'Photobash-2'},
                         {id: 2, filename: 'Photobash-1'}
+                    ]
+                },
+                { 
+                    number: 7,
+                    title: 'Blog Site',
+                    date: '2017.6',
+                    imgtopUrl: 'blog-1',
+                    texts: [
+                        {id: 1, content: '就活のネタ作りに作ったブログサイトです。'}
+                    ],
+                    soft: 'WordPress / HTML / CSS / Javascript',
+                    link: '',
+                    imgs: [
+                        {id: 1, filename: 'blog-2'}
+                    ]
+                },
+                { 
+                    number: 8,
+                    title: 'Portfolio2017',
+                    date: '2017.5',
+                    imgtopUrl: 'portfolio2017-1',
+                    texts: [
+                        {id: 1, content: '2017年の就活の際に作ったポートフォリオサイトです。'}
+                    ],
+                    soft: 'HTML / CSS / Javascript',
+                    link: '',
+                    imgs: [
+                        {id: 1, filename: 'portfolio2017-2'},
+                        {id: 2, filename: 'portfolio2017-3'}
                     ]
                 }
             ],
@@ -387,13 +425,13 @@ $mobile-borderwidth: 2px;
 
 .sections {
     width: $width-inner;
-    margin: 60px auto 0;
+    margin: 60px auto 100px;
     display: flex;
     flex-wrap: wrap;
 }
 @media screen and (max-width: $breakpointMiddle) {
     .sections {
-        margin: 20px auto 0;
+        margin: 20px auto 60px;
         width: $mobile-widthinner;
     }
 } 
