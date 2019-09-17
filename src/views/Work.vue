@@ -105,10 +105,12 @@ export default {
             test: 'Portfolio',
             instalationWebs: [
                 {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: '_thumbnail-portfolio2019'},
-                {id: 2, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
-                {id: 3, number: 2, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
-                {id: 4, number: 7, title: 'Blog site', imgsrc: 'blog-1'},
-                {id: 5, number: 8, title: 'Portfolio 2017', imgsrc: 'portfolio2017-1'},
+                {id: 2, number: 8, title: 'meiji YOGURT TOWN', imgsrc: 'meiji-1'},
+                {id: 3, number: 9, title: 'Space Light Shuttle', imgsrc: 'shuttle-1'},
+                {id: 4, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
+                {id: 5, number: 10, title: 'Heineken STAR GROOVE', imgsrc: 'heineken-1'},
+                {id: 6, number: 2, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
+                {id: 7, number: 7, title: 'Blog site', imgsrc: 'blog-1'},
             ],
             cgs: [
                 {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: 'houdini_smoke-1'},
@@ -141,10 +143,12 @@ export default {
                     imgtopUrl: '_thumbnail-effect_simulation',
                     texts: [
                         {id: 1, content: 'イメージソースが開催する「ProtoTypes」で出展するために作成。'},
-                        {id: 2, content: '構想などの時間がかかり、Houdiniでのエフェクト制作が1週間、Unreal Engine4(以下UE4)での開発が4日と悔いの残る作品。ポイントはHoudiniで作成した流体シミュレーションをVertext Animation Texture(以下VAT)に書き出し、UE4でリアルタイムに再生を試みた箇所。'}
+                        {id: 2, content: 'エフェクト作成が強みであるHoudinを使い、ゲームエンジンだけでは再現しづらい表現に挑戦した試作です。3DCGを用いたことで、奥行きや立体感を感じられ、従来のような2次元的な表現とは違った面白さを感じられるよう制作しました。'},
+                        {id: 3, content: '今回の展示ではじゃんけんをテーマに、体験者の手の動きに合わせ、“崩れて岩になる、スパッと切れる、布になってクシャっと潰れる”といった反応を見せる、ゲーム寄りの提案となりましたが、他にも水や線の描画、布、煙などの映像作品に組み込める、多彩なエフェクトを可能とします。'}
                     ],
-                    soft: 'Unreal Engine4, Houdini',
-                    link: '',
+                    soft: 'Unreal Engine4 / Houdini',
+                    link: 'http://www.imgsrc.co.jp/lab/effects-simulation/',
+                    linkText: 'http://www.imgsrc.co.jp/lab/effects-simulation/',
                     imgs: []
                 },
                 { 
@@ -156,7 +160,7 @@ export default {
                         {id: 1, content: '目が不自由な方が行うスポーツ「ゴールボール」をデジタルで再現した施策。2人のプレイヤーが攻守に別れ、オフェンス側のプレイヤーはコントローラーから球種とスピードを選択し、ディフェンス側のプレイヤーは15個のスピーカーから鳴る音を頼りにボールを止めます。'},
                         {id: 2, content: 'この施策は合計3回行われ、1回目はコントローラーのアプリを開発、2回目はメンテナンス・保守、3回目はUnlimited Handという筋電位センサーとの連携を追加開発しました。'}
                     ],
-                    soft: 'Javascript(EJS / PostCss / ES6 / webpack), Unity',
+                    soft: 'Javascript(EJS,PostCss,ES6,webpack) / Unity',
                     link: '',
                     imgs: []
                 },
@@ -238,17 +242,56 @@ export default {
                 },
                 { 
                     number: 8,
-                    title: 'Portfolio2017',
-                    date: '2017.5',
-                    imgtopUrl: 'portfolio2017-1',
+                    title: 'meiji YOGURT TOWN',
+                    date: '2019.7',
+                    imgtopUrl: 'meiji-1',
                     texts: [
-                        {id: 1, content: '2017年の就活の際に作ったポートフォリオサイトです。'}
+                        {id: 1, content: 'ヨーグルトの日を記念し、2019年5月17日(金)〜19日(日)の３日間、東京ミッドタウンのアトリウム/コートヤードにて『明治ブルガリアヨーグルトPresents腸いいね！ヨーグルトタウン』が開催されました。'},
+                        {id: 2, content: '10問の腸年齢診断に答えると腸年齢に応じた腸キャラが選択されます。その腸キャラにお好みのパーツや装飾をしてオリジナル腸キャラを作ることができ、ヨーグルトタウン内のモニターに映し出されたご自分のキャラクターを探したり、カスタマイズした腸キャラのシールや画像スタンプをダウンロードできます。'},
+                        {id: 3, content: 'Unityを用いてiPadアプリのフロント部分（カメラロールに画像を保存するまで）と、5760px*2160pxの大型スクリーンに映し出されるアプリ全般の開発を行いました。'}
                     ],
-                    soft: 'HTML / CSS / Javascript',
-                    link: '',
+                    soft: 'Unity',
+                    link: 'http://www.imgsrc.co.jp/work/meiji-yogurttown/',
+                    linkText: 'http://www.imgsrc.co.jp/work/meiji-yogurttown/',
                     imgs: [
-                        {id: 1, filename: 'portfolio2017-2'},
-                        {id: 2, filename: 'portfolio2017-3'}
+                        {id: 1, filename: 'meiji-2'},
+                        {id: 2, filename: 'meiji-3'}
+                    ]
+                },
+                { 
+                    number: 9,
+                    title: 'Space Light Shuttle',
+                    date: '2019.3',
+                    imgtopUrl: 'shuttle-1',
+                    texts: [
+                        {id: 1, content: '既存のスポーツ、バドミントンをデジタルとの融合・拡張により新感覚で体験する「SPACE LIGHT SHUTTLE」。コートを都市に見立て、立体的に浮かび上がる光のシャトルを打ち合うインスタレーションです。'},
+                        {id: 2, content: '吊るされた透過スクリーンに投影する映像を担当しました。Unityでリアルタイムでレンダリングしており、ラケットを振る速度・向きや位置をOSCで受け取りそれに応じてシャトルのスピードやパーティクルの位置を変化させています。'},
+                        {id: 3, content: 'またシャトルの到達地点（対戦相手）付近には渋谷の3Dモデルデータを配置しており、それのポリゴン数の削減も行いました。'},
+                    ],
+                    soft: 'Unity / Houdini',
+                    link: 'http://www.imgsrc.co.jp/work/spacelightshuttle/',
+                    linkText: 'http://www.imgsrc.co.jp/work/spacelightshuttle/',
+                    imgs: [
+                        {id: 1, filename: 'shuttle-2'},
+                        {id: 2, filename: 'shuttle-3'}
+                    ]
+                },
+                { 
+                    number: 10,
+                    title: 'Heineken STAR GROOVE',
+                    date: '2018.7',
+                    imgtopUrl: 'heineken-1',
+                    texts: [
+                        {id: 1, content: 'ハイネケンが提供する体験型音楽アクティビティ「STAR GROOVE」を制作しました。'},
+                        {id: 2, content: 'Kinectを使用し、前にプレイヤーが立って踊るとそれがモニターの中のアバターに反映され、画面の中のアバターが自分と同じ動きで踊ります。またKinectで取得したプレイヤーの映像から顔を抽出し、テクスチャとしてモデルデータの顔にリアルタイムで反映させています。'},
+                        {id: 3, content: 'Kinectでの処理、エフェクトの作成、モデルデータの顔をテクスチャを反映させやすいように編集、体験全体の開発を行いました。'},
+                    ],
+                    soft: 'Unity / Blender / Kinect V2',
+                    link: 'http://www.imgsrc.co.jp/work/heineken-stargroove/',
+                    linkText: 'http://www.imgsrc.co.jp/work/heineken-stargroove/',
+                    imgs: [
+                        {id: 1, filename: 'heineken-2'},
+                        {id: 2, filename: 'heineken-3'}
                     ]
                 }
             ],
@@ -426,7 +469,7 @@ $mobile-borderwidth: 2px;
 
 .sections {
     width: $width-inner;
-    margin: 60px auto 100px;
+    margin: 80px auto 100px;
     display: flex;
     flex-wrap: wrap;
 }

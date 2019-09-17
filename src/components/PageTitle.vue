@@ -55,17 +55,17 @@ export default {
     }
     &::before {
         transition: all 400ms 0ms ease;
-        width: calc(((100vw - 800px) / 2) + 820px);
+        width: calc(((100vw - 800px) / 2) + 800px);
         background-color: $gray;
         z-index: 2;
         top: 50px;
     }
     &::after {
         transition: all 400ms 500ms ease;
-        width: calc(((100vw - 800px) / 2) + 800px);
+        width: calc(((100vw - 800px) / 2) + 840px);
         background-color: $keyColor;
         z-index: 1;
-        top: 80px;
+        top: 65px;
     }
 }
 @media screen and (max-width: $breakpointMiddle) {

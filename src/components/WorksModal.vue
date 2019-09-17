@@ -9,13 +9,13 @@
             <div class="explanation">
                 <p class="explanation-text" v-for='text in propsTexts' v-bind:key='text.id' v-html='text.content'></p>
                 <ul class="explanation-soft">
-                    <li class="explanation-soft-static">開発環境、使用ソフト</li>
+                    <li class="explanation-soft-static">開発環境、使用ソフト、デバイス</li>
                     <li class="explanation-soft-list">{{propsSoft}}</li>
                 </ul>
-                <p v-if='isLink' class="explanation-link">
-                    <span class="explanation-link-static">リンク：</span>
-                    <a class="explanation-link-dynamic" v-bind:href="propsLink" target="_blank">{{propsLinkText}}</a>
-                </p>
+                <ul v-if='isLink' class="explanation-link">
+                    <li class="explanation-link-static">リンク：</li>
+                    <li class="explanation-link-dynamic"><a v-bind:href="propsLink" target="_blank">{{propsLinkText}}</a></li>
+                </ul>
                 <ul v-if='isImgs' class="explanation-imgList">
                     <li class="explanation-imgList-child" v-for='img in propsImages' v-bind:key='img.id'>
                         <img class="explanation-imgList-image" :src='require("../assets/img/" + img.filename + ".jpg")'>
@@ -109,27 +109,27 @@ export default {
 
 .title {
     padding-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 85px;
     position: relative;
     &::before, &::after {
         content: '';
         display: block;
         position: absolute;
         width: 600px;
-        height: 60px;
+        height: 70px;
         left: 0;
     }
     &::before {
         background-color: $gray;
-        bottom: -5px;
+        bottom: -16px;
         z-index: -1;
         width: calc(800px + ((100vw - 800px) / 2));
     }
     &::after {
         background-color: $keyColor;
-        bottom: -15px;
+        bottom: -30px;
         z-index: -2;
-        width: calc(800px + ((100vw - 800px) / 2) + 20px);
+        width: calc(800px + ((100vw - 800px) / 2) + 40px);
     }
     &-title, &-date {
         text-align: left;
@@ -138,7 +138,7 @@ export default {
     }
     &-title {
         font-weight: bold;
-        font-size: 80px;
+        font-size: 60px;
     }
     &-date {
         font-size: 16px;
@@ -147,7 +147,7 @@ export default {
 @media screen and (max-width: $breakpointMiddle) {
     .title {
         padding-top: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         &::before, &::after {
             height: 26px;
         }
@@ -180,13 +180,13 @@ export default {
     height: calc(800px * (9/16));
     margin-bottom: 60px;
     width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
 }
 @media screen and (max-width: $breakpointMiddle) {
     .image-top {
         width: 90vw;
         height: calc(90vw * (9/16));
-        margin-bottom: 40px;
+        margin-bottom: 50px;
     }
 } 
 
@@ -199,9 +199,9 @@ export default {
     margin-bottom: 100px;
     &-text {
         font-size: 16px;
-        line-height: 48px;
+        line-height: 40px;
         &:not(:first-child) {
-            margin-top: 36px;
+            margin-top: 16px;
         }
     }
     &-soft {
@@ -215,11 +215,14 @@ export default {
         }
     }
     &-link {
-        font-size: 16px;
+        &-static, &-dynamic {
+            font-size: 16px;
+        }
         &-static {
-            margin-right: 30px;
+            margin-bottom: 10px;            
         }
         &-dynamic {
+            height: 16px;
             display: inline-block;
             border-bottom: solid 1px $keyColor;
         }
@@ -228,6 +231,9 @@ export default {
         &-child {
             width: 100%;
             height: calc(800px * 9 / 16);
+            &:first-child {
+                margin-top: 40px;
+            }
         }
         &-image {
             box-sizing: border-box;
@@ -241,27 +247,31 @@ export default {
 @media screen and (max-width: $breakpointMiddle) {
     .explanation {
         width: 90vw;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
         &-text {
             font-size: 14px;
             line-height: 28px;
         }
         &-soft {
             margin-top: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             &-static, &-list {
                 font-size: 14px;
             }
             &-static {
-                margin-bottom: 10px;
+                margin-bottom: 6px;
             }
         }
         &-link {
-            font-size: 14px;
+            &-static, &-dynamic {
+                font-size: 14px;
+            }
             &-static {
-                margin-right: 20px;
+                margin-bottom: 6px;            
             }
             &-dynamic {
+                height: 14px;
+                display: inline-block;
                 border-bottom: solid 1px $keyColor;
             }
         }
@@ -315,6 +325,12 @@ export default {
             height: 50px;
             line-height: 50px;
             width: 90vw;
+            &::before {
+                width: 150px;
+                height: 20px;
+                top: 25px;
+                left: calc((100% - 150px) / 2);
+            }
         }
     }
 } 

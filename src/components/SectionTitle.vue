@@ -87,7 +87,7 @@ export default {
 
 .sectionTitle-container.active {
     &::before {
-        width: calc(((100vw - 800px) / 2) + 820px);
+        width: calc(((100vw - 800px) / 2) + 830px);
         transition: all 200ms 200ms ease;
     }
     &::after {

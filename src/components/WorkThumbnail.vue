@@ -56,7 +56,7 @@ export default {
 
 <style scoped lang="scss">
 //variable
-$contentwidth: 360px;
+$contentwidth: 380px;
 $contentSpace: 40px;
 $border-time: 200ms;
 $border-width: 2px;
@@ -221,7 +221,7 @@ $mobile-borderwidth: 2px;
     bottom: 16px;
     left: -16px;
     z-index: 2;
-    font-size: $fontsize-small;
+    font-size: 14px;
     color: $white;
     &::before, &::after {
         position: absolute;
