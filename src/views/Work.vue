@@ -129,9 +129,10 @@ export default {
                         {id: 2, content: '読書が好きなので、栞を差し込むようなアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装がメイン。'},
                         {id: 3, content: 'FTPソフトではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、勉強に時間がかかりました。'},
                     ],
-                    soft: 'Vue.js',
+                    soft: 'Vue CLI',
                     link: 'https://kmrtmk-portfolio2019.herokuapp.com/',
-                    linkText: 'Portfolio2019'
+                    linkText: 'Portfolio2019',
+                    imgs:[]
                 },
                 { 
                     number: 1,

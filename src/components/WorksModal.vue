@@ -8,7 +8,10 @@
             <img class="image-top" :src="imgtopUrl">
             <div class="explanation">
                 <p class="explanation-text" v-for='text in propsTexts' v-bind:key='text.id' v-html='text.content'></p>
-                <p class="explanation-soft"><span class="explanation-soft-static">開発環境・ソフト：</span>{{propsSoft}}</p>
+                <ul class="explanation-soft">
+                    <li class="explanation-soft-static">開発環境、使用ソフト</li>
+                    <li class="explanation-soft-list">{{propsSoft}}</li>
+                </ul>
                 <p v-if='isLink' class="explanation-link">
                     <span class="explanation-link-static">リンク：</span>
                     <a class="explanation-link-dynamic" v-bind:href="propsLink" target="_blank">{{propsLinkText}}</a>
@@ -58,10 +61,6 @@ export default {
         setTimeout(() => {
             this.isScroll = true
         }, 600)
-    },
-    created() {
-        const modal = document.querySelector('.container-worksmodal')
-        disableBodyScroll(modal)
 
         //リンク記述のHTMLを表示するか
         if(this.propsLink == '' || this.propsLinkText == '') {
@@ -73,6 +72,11 @@ export default {
         if(this.imgsCount.length == 0) {
             this.isImgs = false
         }
+    },
+    created() {
+        const modal = document.querySelector('.container-worksmodal')
+        disableBodyScroll(modal)
+
     },
     beforeDestroy() {
         clearAllBodyScrollLocks()
@@ -202,10 +206,12 @@ export default {
     }
     &-soft {
         font-size: 16px;
-        margin: 40px 0 10px;
+        margin: 40px 0 40px;
+        &-static, &-list {
+            font-size: 16px;
+        }
         &-static {
-            display: inline-block;
-            margin-right: 13px;
+            margin-bottom: 10px;
         }
     }
     &-link {
@@ -241,9 +247,14 @@ export default {
             line-height: 28px;
         }
         &-soft {
-            font-size: 14px;
             margin-top: 30px;
             margin-bottom: 10px;
+            &-static, &-list {
+                font-size: 14px;
+            }
+            &-static {
+                margin-bottom: 10px;
+            }
         }
         &-link {
             font-size: 14px;
@@ -266,17 +277,33 @@ export default {
 } 
 
 .close {
-    padding-bottom: 100px;
+    padding-bottom: 100px;  
     &-button {
-        background-color: $white;
-        color: $gray;
-        font-size: 24px;
+        color: $white;
+        font-size: 28px;
         height: 40px;
         line-height: 40px;
         margin: 0 auto;
         width: 300px;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 0%;
+            height: 20px;
+            background-color: $keyColor;
+            top: 25px;
+            left: calc((100% - 150px) / 2);
+            z-index: -1;
+            transition: all 200ms 0ms ease;
+        }
         &:hover {
             cursor: pointer;
+            &::before {
+                transition: all 400ms 0ms ease;
+                width: 150px;
+            }
         }
     }
 }

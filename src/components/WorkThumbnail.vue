@@ -218,12 +218,11 @@ $mobile-borderwidth: 2px;
     height: 32px;
     line-height: 32px;
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 16px;
+    left: -16px;
     z-index: 2;
     font-size: $fontsize-small;
-    font-weight: bold;
-    color: $gray;
+    color: $white;
     &::before, &::after {
         position: absolute;
         content: '';
@@ -243,7 +242,7 @@ $mobile-borderwidth: 2px;
     }
     &::after {
         top: 0;
-        background-color: $white;
+        background-color: $gray;
     }
     &.active::after {
         transition: all 400ms 400ms ease;
