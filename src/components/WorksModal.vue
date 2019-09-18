@@ -5,7 +5,10 @@
                 <h3 class="title-title">{{propsTitle}}</h3>
                 <p class="title-date">{{propsDate}}</p>
             </div>
-            <img class="image-top" :src="imgtopUrl">
+            <div class="image-top-wrap">
+                <v-lazy-image class="image-top" :src="imgtopUrl" />
+                <span class="image-over"></span>
+            </div>
             <div class="explanation">
                 <p class="explanation-text" v-for='text in propsTexts' v-bind:key='text.id' v-html='text.content'></p>
                 <ul class="explanation-soft">
@@ -18,7 +21,8 @@
                 </ul>
                 <ul v-if='isImgs' class="explanation-imgList">
                     <li class="explanation-imgList-child" v-for='img in propsImages' v-bind:key='img.id'>
-                        <img class="explanation-imgList-image" :src='require("../assets/img/" + img.filename + ".jpg")'>
+                        <v-lazy-image class="explanation-imgList-image" :src='require("../assets/img/" + img.filename + ".jpg")' />
+                        <span class="image-over"></span>
                     </li>
                 </ul>
             </div>
@@ -30,10 +34,14 @@
 </template>
 
 <script>
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import VLazyImage from 'v-lazy-image'
 
 export default {
     name: 'WorksModal',
+    components: {
+        VLazyImage
+    },
     data: function() {
         return {
             isLink: true,
@@ -173,24 +181,26 @@ export default {
     }
 } 
 
+.image-top-wrap {
+    width: 800px;
+    height: calc(800px * (9/16));
+    margin: 0 auto 40px;
+    position: relative;
+}
+@media screen and (max-width: $breakpointMiddle) {
+    .image-top-wrap {
+        width: 90vw;
+        height: calc(90vw * (9/16));
+        margin: 0 auto 50px;
+    }
+} 
 .image-top {
     display: block;
     border: solid 2px $gray;
     box-sizing: border-box;
-    height: calc(800px * (9/16));
-    margin-bottom: 60px;
-    width: 800px;
-    margin: 0 auto 40px;
+    width: 100%;
+    height: 100%;
 }
-@media screen and (max-width: $breakpointMiddle) {
-    .image-top {
-        width: 90vw;
-        height: calc(90vw * (9/16));
-        margin-bottom: 50px;
-    }
-} 
-
-
 
 .explanation {
     width: 800px;
@@ -231,6 +241,7 @@ export default {
         &-child {
             width: 100%;
             height: calc(800px * 9 / 16);
+            position: relative;
             &:first-child {
                 margin-top: 40px;
             }
@@ -334,5 +345,25 @@ export default {
         }
     }
 } 
+
+
+.v-lazy-image {
+    position: relative;
+    &+.image-over {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $gray;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    &.v-lazy-image-loaded + .image-over {
+        transition: all 400ms 100ms ease;
+        width: 0%;
+    }
+}
 
 </style>
