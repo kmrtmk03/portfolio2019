@@ -33,8 +33,7 @@ export default {
       lists: [
         { id: 1, name: 'Home', to: '/', displayName: 'home' },
         { id: 2, name: 'Profile', to: '/profile', displayName: 'profile'  },
-        { id: 3, name: 'Works', to: '/work', displayName: 'works'  },
-        { id: 4, name: 'Link', to: '/link', displayName: 'link'  }
+        { id: 3, name: 'Works', to: '/work', displayName: 'works'  }
       ],
       currentChoise: ''
     }

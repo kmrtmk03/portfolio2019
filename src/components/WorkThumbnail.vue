@@ -2,7 +2,11 @@
     <li class="section-content">
         <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)" v-on:click='OnOpenModal'>
             <v-lazy-image class="section-img" :src="imgsrcUrl" />
-            <span class="section-img-over" :class="{active: isReloaded}"></span>
+            <div class="section-img-over" :class="{active: isReloaded}">
+                <span class="section-img-over-child"></span>
+                <span class="section-img-over-child"></span>
+                <span class="section-img-over-child"></span>
+            </div>
             <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
             <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
             <p class="section-label" :class="{active: isReloaded, onThumbnail: isOnThumbnail}">{{workTitle}}</p>
@@ -142,6 +146,60 @@ $mobile-borderwidth: 2px;
     top: 0;
     left: 0;
     z-index: 1;
+    overflow: hidden;
+    &-child {
+        display: block;
+        position: absolute;
+        top: calc((380px * 9 / 16) / 2 - 25px);
+        background-color: $gray;
+        z-index: 50;
+        width: 10px;
+        height: 50px;        
+        &:nth-child(1) {
+            left: calc(190px - 5px);
+            animation: loading 800ms ease 0s infinite alternate none running;
+        }
+        &:nth-child(2) {
+            left: calc(190px - 25px);
+            animation: loading 800ms ease 0.1s infinite alternate none running;
+        }
+        &:nth-child(3) {
+            left: calc(190px + 15px);
+            animation: loading 800ms ease 0.2s infinite alternate none running;
+        }
+    }
+}
+@media screen and (max-width: $breakpointMiddle) {
+    .section-img-over {
+        width: 90vw;
+        &-child {
+            top: calc((90vw * 9 / 16) / 2 - 20px);
+            width: 10px;
+            height: 40px;        
+            &:nth-child(1) {
+                left: calc(45vw - 5px);
+            }
+            &:nth-child(2) {
+                left: calc(45vw - 25px);
+            }
+            &:nth-child(3) {
+                left: calc(45vw + 15px);
+            }
+        }
+    }
+} 
+
+@keyframes loading {
+    0% {
+        transform: scaleY(0.2);
+    }
+    50% {
+        transform: scaleY(1.5);
+    }
+    100% {
+        transform: scaleY(0.2);
+    }
+
 }
 
 .v-lazy-image-loaded + .section-img-over {
