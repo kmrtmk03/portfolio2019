@@ -132,8 +132,8 @@ export default {
                         {id: 3, content: 'FTPソフトではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、勉強に時間がかかりました。'},
                     ],
                     soft: 'Vue CLI',
-                    link: 'https://kmrtmk-portfolio2019.herokuapp.com/',
-                    linkText: 'Portfolio2019',
+                    link: 'https://github.com/kmrtmk03/portfolio2019',
+                    linkText: 'https://github.com/kmrtmk03/portfolio2019',
                     imgs:[]
                 },
                 { 

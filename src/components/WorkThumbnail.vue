@@ -1,7 +1,7 @@
 <template>
     <li class="section-content">
         <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)" v-on:click='OnOpenModal'>
-            <img class="section-img" :src="imgsrcUrl">
+            <v-lazy-image class="section-img" :src="imgsrcUrl" />
             <span class="section-img-over" :class="{active: isReloaded}"></span>
             <span class="section-border-side" :class="{active: isOnThumbnail}"></span>
             <span class="section-border-topbottom" :class="{active: isOnThumbnail}"></span>
@@ -12,8 +12,12 @@
 
 <script>
 import store from '../store'
+import VLazyImage from 'v-lazy-image'
 export default {
     name: 'WorkThumbnail',
+    components: {
+        VLazyImage
+    },
     data: function() {
         return {
             isOnThumbnail: false,
@@ -104,6 +108,21 @@ $mobile-borderwidth: 2px;
     position: relative;
     border: solid $border-width $white;
     box-sizing: border-box;
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: $white;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        &.active {
+            transition: all 400ms 0ms ease;
+            width: 0%;
+        }
+    }
 }
 @media screen and (max-width: $breakpointMiddle) {
     .section-img {
@@ -112,6 +131,7 @@ $mobile-borderwidth: 2px;
         border: solid $mobile-borderwidth $white;
     }
 } 
+
 .section-img-over {
     content: '';
     display: block;
@@ -122,6 +142,9 @@ $mobile-borderwidth: 2px;
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+.v-lazy-image-loaded + .section-img-over {
     &.active {
         transition: all 400ms 0ms ease;
         width: 0%;

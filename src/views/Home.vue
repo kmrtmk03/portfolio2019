@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <!-- <TransitionMask />
-    <Menu /> -->
       <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
     <div class="img"></div>
   </div>
@@ -9,14 +7,10 @@
 
 <script>
 import store from '../store'
-// import Menu from '../components/Menu.vue'
-// import TransitionMask from '../components/TransitionMask'
 
 export default {
   name: 'home',
   components: {
-    // Menu,
-    // TransitionMask
   },
   mounted() {
     store.state.currentPage = 'Home'
