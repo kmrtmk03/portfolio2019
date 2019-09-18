@@ -15,6 +15,17 @@
             @mouseover.native="sliceCurrent(list.displayName)">{{ list.name }}</router-link>
         </li>
       </ul>
+      <ul class="menu-link">
+        <li class="menu-link-list">
+          <a class="menu-link-a" href="https://twitter.com/kmrtmk2nd" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="menu-link-icon" /></a>
+        </li>
+        <li class="menu-link-list">
+          <a class="menu-link-a" href="https://www.facebook.com/kmrtmk03" target="_blank"><font-awesome-icon :icon="['fab', 'facebook-f']" class="menu-link-icon" /></a>
+        </li>
+        <li class="menu-link-list">
+          <a class="menu-link-a" href="https://www.instagram.com/kmrtmk_photo/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="menu-link-icon" /></a>
+        </li>
+      </ul>
       <div class="button-close" v-on:click="closeMenu">c<span class="list-dec">l</span>ose</div>
       <span class="menu-currentPage" v-html="this.currentChoise"></span>
     </nav>
@@ -24,9 +35,18 @@
 <script>
 import store from '../store'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons"; // 通常のフリーアイコン
+import { faTwitter, faInstagram, faFacebookF } from "@fortawesome/free-brands-svg-icons"; // ブランドアイコンを使うにはこれを読み込む必要がある
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faCoffee, faTwitter, faFacebookF, faInstagram)
 
 export default {
   name: 'MenuModal',
+  components: {
+    FontAwesomeIcon
+  },
   data: function() {
     return {
       isActive: false,
@@ -91,6 +111,40 @@ export default {
 
 <style scoped lang="scss">
 
+.menu-link {
+  width: 148px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  &-list {
+    width: 36px;
+    height: 36px;
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+  &-a {
+    font-size: 36px;
+    display: block;
+  }
+}
+@media screen and (max-width: $breakpointMiddle) {
+  .menu-link {
+    width: 160px;
+    bottom: 240px;
+    right: calc((100vw - 160px) / 2);
+    &-list {
+      width: 36px;
+      height: 36px;
+      &:not(:first-child) {
+        margin-left: 26px;
+      }
+    }
+  }
+} 
+
 .menu-wrap {
   background-color: #000;
   width: 100vw;
@@ -130,8 +184,8 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
   .list-wrap {
-    height: 240px;
-    padding-top: calc((100vh - 240px) / 2);
+    height: 210px;
+    padding-top: calc((100vh - 300px) / 2);
   }
 } 
 
@@ -170,7 +224,7 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
   .list-child {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     height: 40px;
   }
 }
@@ -210,7 +264,7 @@ export default {
 }
 @media screen and (max-width: $breakpointMiddle) {
   .list-link {
-    font-size: 24px;
+    font-size: 32px;
     height: 40px;
     line-height: 40px;
     display: block;

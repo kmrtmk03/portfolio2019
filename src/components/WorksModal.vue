@@ -346,7 +346,6 @@ export default {
     }
 } 
 
-
 .v-lazy-image {
     position: relative;
     &+.image-over {
@@ -365,5 +364,4 @@ export default {
         width: 0%;
     }
 }
-
 </style>
