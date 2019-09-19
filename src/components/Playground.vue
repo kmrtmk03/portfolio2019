@@ -16,7 +16,7 @@ export default {
           screenheight: 0,
           isDrawing: false,
           beforeX: 0,
-          beforeY: 0
+          beforeY: 0,
       }
   },
   created() {
@@ -44,26 +44,6 @@ export default {
         if(this.isDrawing == true) {
             const x = e.clientX
             const y = e.clientY
-            this.draw(x, y)
-        }
-    })
-
-    //タッチ開始
-    window.addEventListener('touchstart', () => {
-        // 位置座標を取得する
-        const touchObject = event.changedTouches[0]
-        this.beforeX = touchObject.pageX
-        this.beforeY = touchObject.pageY
-        this.isDrawing = true
-    })
-
-    window.addEventListener('touchmove', () => {
-        if(this.isDrawing == true) {
-            // 位置座標を取得する
-            const touchObject = event.changedTouches[0]
-            const x = touchObject.pageX
-            const y = touchObject.pageY
-
             this.draw(x, y)
         }
     })

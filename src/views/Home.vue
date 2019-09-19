@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Playground />
+    <Playground v-if='isPc' />
     <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
   </div>
 </template>
@@ -14,8 +14,21 @@ export default {
   components: {
     Playground
   },
+  data: function() {
+    return {
+      isPc: true
+    }
+  },
   mounted() {
     store.state.currentPage = 'Home'
+
+    const w = window.innerWidth
+    const h = window.innerHeight
+    if(w - h < 0) {
+      this.isPc = false
+    } else {
+      this.isPc = true
+    }
   }
 }
 </script>
