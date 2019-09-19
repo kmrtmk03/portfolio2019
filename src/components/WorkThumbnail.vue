@@ -1,7 +1,7 @@
 <template>
     <li class="section-content">
         <div class="section-image" @mouseover="onThumbnail(true)" @mouseleave="onThumbnail(false)" v-on:click='OnOpenModal'>
-            <v-lazy-image class="section-img" :src="imgsrcUrl" />
+            <v-lazy-image class="section-img" :src="imgsrcUrl" /> 
             <div class="section-img-over" :class="{active: isReloaded}">
                 <span class="section-img-over-child"></span>
                 <span class="section-img-over-child"></span>
@@ -36,24 +36,38 @@ export default {
         'number': Number
     },
     computed: {
+        //画像のURLを返す
         imgsrcUrl: function() {
             return require("../assets/img/" + this.imgsrc + ".jpg")
         }
     },
     mounted() {
+        //要素のレンダリング待ち
         this.$nextTick(function () {
             setTimeout(() => {
                 this.displayAnim()
             }, 4000)
         })
+
+        //棒の色をランダムに変更する
+        let elements = document.getElementsByClassName('section-img-over-child')
+        for(let i = 0; i < elements.length; i++) {
+            const random = Math.random()
+            if(random < 0.1) {
+                elements[i].setAttribute('style', 'background-color: #FFD800')
+            }
+        }
     },
     methods: {
+        //Thumbnailにマウスが乗った or 離れた時
         onThumbnail: function(isBool) {
             this.isOnThumbnail = isBool
         },
+        //表示するアニメーションを開始
         displayAnim: function() {
             this.isReloaded = true;
         },
+        //モーダルを呼ぶ
         OnOpenModal: function () {
             store.state.worksModalNumber = this.number
             this.$emit('ModalOpen')

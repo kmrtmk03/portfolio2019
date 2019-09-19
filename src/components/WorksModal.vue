@@ -7,7 +7,11 @@
             </div>
             <div class="image-top-wrap">
                 <v-lazy-image class="image-top" :src="imgtopUrl" />
-                <span class="image-over"></span>
+                <div class="section-img-over">
+                    <span class="section-img-over-child"></span>
+                    <span class="section-img-over-child"></span>
+                    <span class="section-img-over-child"></span>
+                </div>
             </div>
             <div class="explanation">
                 <p class="explanation-text" v-for='text in propsTexts' v-bind:key='text.id' v-html='text.content'></p>
@@ -22,7 +26,11 @@
                 <ul v-if='isImgs' class="explanation-imgList">
                     <li class="explanation-imgList-child" v-for='img in propsImages' v-bind:key='img.id'>
                         <v-lazy-image class="explanation-imgList-image" :src='require("../assets/img/" + img.filename + ".jpg")' />
-                        <span class="image-over"></span>
+                        <div class="section-img-over">
+                            <span class="section-img-over-child"></span>
+                            <span class="section-img-over-child"></span>
+                            <span class="section-img-over-child"></span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -80,6 +88,15 @@ export default {
         if(this.imgsCount.length == 0) {
             this.isImgs = false
         }
+
+        //Loadingの棒の色をランダムに変更する
+        let imgOverChildren = document.getElementsByClassName('section-img-over-child')
+        for(let i = 0; i < imgOverChildren.length; i++) {
+            const random = Math.random()
+            if(random < 0.3) {
+                imgOverChildren[i].setAttribute('style', 'background-color: #FFD800')
+            }   
+        }
     },
     created() {
         const modal = document.querySelector('.container-worksmodal')
@@ -101,6 +118,81 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/* -------------------- LazyLoad -------------------- */
+.v-lazy-image {
+    position: relative;
+}
+.section-img-over {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    &-child {
+        display: block;
+        position: absolute;
+        top: calc((800px * 9 / 16) / 2 - 25px);
+        background-color: $gray;
+        z-index: 50;
+        width: 10px;
+        height: 50px;        
+        &:nth-child(1) {
+            left: calc(400px - 5px);
+            animation: loading 800ms ease 0s infinite alternate none running;
+        }
+        &:nth-child(2) {
+            left: calc(400px - 25px);
+            animation: loading 800ms ease 0.1s infinite alternate none running;
+        }
+        &:nth-child(3) {
+            left: calc(400px + 15px);
+            animation: loading 800ms ease 0.2s infinite alternate none running;
+        }
+    }
+}
+@media screen and (max-width: $breakpointMiddle) {
+    .section-img-over {
+        width: 90vw;
+        &-child {
+            top: calc((90vw * 9 / 16) / 2 - 20px);
+            width: 10px;
+            height: 40px;        
+            &:nth-child(1) {
+                left: calc(45vw - 5px);
+            }
+            &:nth-child(2) {
+                left: calc(45vw - 25px);
+            }
+            &:nth-child(3) {
+                left: calc(45vw + 15px);
+            }
+        }
+    }
+}
+@keyframes loading {
+    0% {
+        transform: scaleY(0.2);
+    }
+    50% {
+        transform: scaleY(1.5);
+    }
+    100% {
+        transform: scaleY(0.2);
+    }
+
+}
+.v-lazy-image-loaded + .section-img-over {
+    transition: all 400ms 0ms ease;
+    width: 0%;
+}
+
+
+/* -------------------- Modal全体 -------------------- */
 .container-worksmodal {
     width: 100vw;
     height: 100vh;
@@ -115,6 +207,7 @@ export default {
     width: 100vw;
 }
 
+/* -------------------- Title -------------------- */
 .title {
     padding-top: 20px;
     margin-bottom: 85px;
@@ -181,6 +274,7 @@ export default {
     }
 } 
 
+/* -------------------- TopImage -------------------- */
 .image-top-wrap {
     width: 800px;
     height: calc(800px * (9/16));
@@ -202,6 +296,7 @@ export default {
     height: 100%;
 }
 
+/* -------------------- 説明箇所 -------------------- */
 .explanation {
     width: 800px;
     margin: 0 auto;
@@ -297,6 +392,7 @@ export default {
     }
 } 
 
+/* -------------------- Close Button -------------------- */
 .close {
     padding-bottom: 100px;  
     &-button {
@@ -346,22 +442,4 @@ export default {
     }
 } 
 
-.v-lazy-image {
-    position: relative;
-    &+.image-over {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: $gray;
-        top: 0;
-        left: 0;
-        z-index: 10;
-    }
-    &.v-lazy-image-loaded + .image-over {
-        transition: all 400ms 100ms ease;
-        width: 0%;
-    }
-}
 </style>

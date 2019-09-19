@@ -117,7 +117,7 @@ export default {
   flex-wrap: wrap;
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 80px;
   &-list {
     width: 36px;
     height: 36px;

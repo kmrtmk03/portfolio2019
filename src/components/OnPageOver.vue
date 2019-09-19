@@ -15,7 +15,19 @@
 
 <script>
 export default {
-  name: 'Menubutton'
+  name: 'Menubutton',
+  mounted() {
+        //棒の色をランダムに変更する
+        let elements = document.getElementsByClassName('over-block')
+        for(let i = 0; i < elements.length; i++) {
+            const random = Math.random()
+            if(random < 0.2) {
+                elements[i].setAttribute('style', 'background-color: #FFD800')
+            } else if(0.7 < random) {
+                // elements[i].setAttribute('style', 'background-color: #ffffff')
+            }
+        }
+  }
 }
 </script>
 
