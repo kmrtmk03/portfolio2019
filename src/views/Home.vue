@@ -1,16 +1,18 @@
 <template>
   <div class="container">
-      <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
-    <div class="img"></div>
+    <Playground />
+    <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
   </div>
 </template>
 
 <script>
 import store from '../store'
+import Playground from '../components/Playground'
 
 export default {
   name: 'home',
   components: {
+    Playground
   },
   mounted() {
     store.state.currentPage = 'Home'
@@ -19,6 +21,11 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
+* {
+  user-select: none;
+}
+
 .container {
   height: 100vh;
   position: relative;
