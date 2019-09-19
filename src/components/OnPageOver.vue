@@ -23,9 +23,11 @@ export default {
             const random = Math.random()
             if(random < 0.2) {
                 elements[i].setAttribute('style', 'background-color: #FFD800')
-            } else if(0.7 < random) {
-                // elements[i].setAttribute('style', 'background-color: #ffffff')
             }
+            
+            // const animTime = Math.random() * 1000 + 200
+            // const delayTime = Math.random() * 300
+            // elements[i].setAttribute('style', 'transition: all ' + animTime +  'ms ' + delayTime + 'ms ease-in')
         }
   }
 }

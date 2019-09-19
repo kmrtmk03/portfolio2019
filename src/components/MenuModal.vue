@@ -121,8 +121,26 @@ export default {
   &-list {
     width: 36px;
     height: 36px;
+    position: relative;
     &:not(:first-child) {
       margin-left: 20px;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 42px;
+      position: absolute;
+      background-color: $keyColor;
+      top: 0;
+      left: 0;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      transition: all 200ms 0ms ease;
+    }
+    &:hover::before {
+      width: 100%;
+      transition: all 400ms 0ms ease;
     }
   }
   &-a {
@@ -140,6 +158,9 @@ export default {
       height: 36px;
       &:not(:first-child) {
         margin-left: 26px;
+      }
+      &::before {
+        content: none;
       }
     }
   }
