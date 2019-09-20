@@ -1,9 +1,6 @@
 <template>
   <div class="playground-container">
     <canvas id="canvas" class="canvas" :width='this.screenwidth' :height='this.screenheight'></canvas>
-    <ul>
-    </ul>
-
   </div>
 </template>
 

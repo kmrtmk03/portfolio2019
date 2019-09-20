@@ -1,18 +1,21 @@
 <template>
   <div class="container">
-    <Playground v-if='isPc' />
+    <!-- <Playground v-if='isPc' /> -->
+    <ThreeScene />
     <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
   </div>
 </template>
 
 <script>
 import store from '../store'
-import Playground from '../components/Playground'
+// import Playground from '../components/Playground'
+import ThreeScene from '../components/ThreeScene'
 
 export default {
   name: 'home',
   components: {
-    Playground
+    // Playground
+    ThreeScene
   },
   data: function() {
     return {
