@@ -9,7 +9,13 @@ export default new Vuex.Store({
     currentPage: 'Top',
     isMobile: false,
     worksModalNumber: 0,
-    isMenu: false
+    isMenu: false,
+    canvasData: null
+  },
+  getters: {
+    getCanvasData(state) {
+      return state.canvasData
+    }
   },
   mutations: {
 

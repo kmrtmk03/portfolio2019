@@ -1,20 +1,20 @@
 <template>
   <div class="container">
-    <!-- <Playground v-if='isPc' /> -->
     <ThreeScene />
+    <Playground v-if='isPc' />
     <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
   </div>
 </template>
 
 <script>
 import store from '../store'
-// import Playground from '../components/Playground'
+import Playground from '../components/Playground'
 import ThreeScene from '../components/ThreeScene'
 
 export default {
   name: 'home',
   components: {
-    // Playground
+    Playground,
     ThreeScene
   },
   data: function() {
@@ -32,7 +32,8 @@ export default {
     } else {
       this.isPc = true
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
@@ -53,7 +54,7 @@ export default {
   font-weight: bold;
   position: absolute;
   right: 0;
-  bottom: 45%;
+  bottom: 15%;
   z-index: 1;
   height: 100px;
   width: 800px;
