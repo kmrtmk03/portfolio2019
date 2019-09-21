@@ -199,6 +199,7 @@ export default {
     position: fixed;
     z-index: 200;
     background-color: #000;
+    overflow-x: hidden;
     &.scroll {
         overflow-y: scroll;
     }

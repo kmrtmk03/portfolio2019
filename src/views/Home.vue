@@ -48,6 +48,11 @@ export default {
   position: relative;
   overflow: hidden;
 }
+@media screen and (max-width: 768px) {
+  .home-container {
+    height: 90vh;
+  }
+}
 
 .title {
   color: #fff;
@@ -85,7 +90,7 @@ export default {
     font-size: 32px;
     position: absolute;
     right: 0;
-    bottom: 45%;
+    bottom: 10%;
     height: 32px;
     width: 80vw;
     &::before, &::after {

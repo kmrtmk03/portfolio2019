@@ -104,7 +104,7 @@ export default {
             },
             test: 'Portfolio',
             instalationWebs: [
-                {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: '_thumbnail-portfolio2019'},
+                {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: 'portfolio2019-0'},
                 {id: 2, number: 8, title: 'meiji YOGURT TOWN', imgsrc: 'meiji-1'},
                 {id: 3, number: 9, title: 'Space Light Shuttle', imgsrc: 'shuttle-1'},
                 {id: 4, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
@@ -125,16 +125,21 @@ export default {
                     number: 0,
                     title: 'Portfolio 2019',
                     date: '2019.9',
-                    imgtopUrl: '_thumbnail-portfolio2019',
+                    imgtopUrl: 'portfolio2019-0',
                     texts: [
-                        {id: 1, content: '自分のサイトを作るため、1年半ぶりにwebを制作。デザイン2日、実装2週間。'},
-                        {id: 2, content: '読書が好きなので、栞を差し込むようなアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装がメイン。'},
-                        {id: 3, content: 'FTPソフトではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、勉強に時間がかかりました。'},
+                        {id: 1, content: '自分のサイトを作るため、1年半ぶりにwebを制作しました。デザイン2日、実装はだいたい2週間ぐらいでした。'},
+                        {id: 2, content: '読書が好きなので、栞を差し込むような横から流れてくるアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装がメインです。'},
+                        {id: 3, content: 'トップページにはお絵かき機能を持たせました。絵を描いてbase64で保存する処理をcanvasで、描いた絵を反映する処理はThree.jsで実装しました。またイーゼルとキャンバスのモデルデータはHoudniでモデリングし、Substance Painterでテクスチャリングを行いました。'},
+                        {id: 4, content: 'FTPソフトを使ってサーバーにアップするのではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、フロントエンドの流れの速さを実感しました。'},
                     ],
-                    soft: 'Vue CLI',
+                    soft: 'Vue CLI / three.js / canvas / Houdini',
                     link: 'https://github.com/kmrtmk03/portfolio2019',
                     linkText: 'https://github.com/kmrtmk03/portfolio2019',
-                    imgs:[]
+                    imgs:[
+                        {id: 0, filename: 'portfolio2019-1'},
+                        {id: 1, filename: 'portfolio2019-2'},
+                        {id: 2, filename: 'portfolio2019-3'}
+                    ]
                 },
                 { 
                     number: 1,
