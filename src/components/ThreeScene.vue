@@ -27,7 +27,10 @@ export default {
         screenwidth: 0,
         screenheight: 0,
         totalFrame: 0,
-        myObject: null
+        myObject: null,
+        myFrame: null,
+        frameColor: null,
+        frameMetallic: null
     }
   },
   computed: {
@@ -85,7 +88,7 @@ export default {
 
     // const oj = new THREE.OBJ
     const loader = new FBXloader()
-    loader.load('../models/canvas-test.fbx', function(object) {
+    loader.load('../models/canvas-v1.fbx', function(object) {
       //読み込んだfbxをvueの変数に入れる
       this.myObject = object
 
@@ -99,18 +102,69 @@ export default {
             roughness: 0.9
           })
         }
-      }) 
+      })
 
-      //scaleをthree.jsに合わせる
-      this.myObject.scale.x = 0.01
-      this.myObject.scale.y = 0.01
-      this.myObject.scale.z = 0.01
-      
+      this.myObject.position.y = -0.6
       //sceneにfbxを追加
       this.scene.add(this.myObject)
     }.bind(this), null, function(error) {
       console.log(error)
     })
+
+
+    let _color = null
+    let _metallic = null
+    let _roughness = null
+    let _normal = null
+
+    //Load ColorMap - Start
+    let colormapLoader = new THREE.TextureLoader()
+    colormapLoader.load('../texture/color-map.png', function(colormap) {
+      _color = colormap
+
+      //Load MetalnessMap -Start
+      let metalnessLoader = new THREE.TextureLoader()
+      metalnessLoader.load('../texture/metallic-map.png', function(metallicmap) {
+        _metallic = metallicmap
+
+        //Load Roughness - Start
+        let roughnessLoader = new THREE.TextureLoader()
+        roughnessLoader.load('../texture/roughness-map.png', function(roughnessmap) {
+          _roughness = roughnessmap
+
+          //Load NormalLoader - Start
+          let normalLoader = new THREE.TextureLoader()
+          normalLoader.load('../texture/normal-map.png', function(normalmap) {
+            _normal = normalmap
+
+            //Load FBX - Start
+            const frameLoader = new FBXloader()
+            frameLoader.load('../models/frame-v1.fbx', function(object){
+              this.myFrame = object
+
+              this.myFrame.traverse(function (child) {
+                if(child.isMesh) {
+                  child.material = new THREE.MeshPhysicalMaterial({
+                    map: _color,
+                    metalnessMap: _metallic,
+                    roughnessMap: _roughness,
+                    normalMap: _normal
+                  })
+                }
+              })
+              this.myFrame.position.y = -0.6
+              this.scene.add(this.myFrame)
+
+              console.log(this)
+            }.bind(this), null, function(error) {
+              console.log(error)
+            }) //Load FBX - End
+
+          }.bind(this)) //Load NormalLoader - End
+        }.bind(this)) //Load RoughnessMap - End
+      }.bind(this)) //Load MetalnessMap - End
+    }.bind(this)) //Load ColorMap - End
+
 
     //回転アニメーション
     this.cubeAnim()

@@ -121,7 +121,7 @@ export default {
       //UV用の塗りつぶし箇所
       this.ctx.fillStyle = '#666666'
       this.ctx.fillRect(0, 0, 512, 112)
-      this.ctx.fillRect(0, 400, 512, 112)      
+      this.ctx.fillRect(0, 400, 512, 112)
     },
     changeColor(_color) {
       this.currentColor = _color
