@@ -20,6 +20,7 @@ export default {
         cameraControl: null,
         light: null,
         ambientLight: null,
+        spotLight: null,
         geometry: null,
         material: null,
         cube: null,
@@ -71,7 +72,7 @@ export default {
     this.cameraControl.maxDistance = 20
     this.cameraControl.minDistance = 5
 
-    //lightss
+    //light
     this.directionalLight = new THREE.DirectionalLight(0xffffff)
     this.directionalLight.position.set(0, 0, 10)
     this.scene.add(this.directionalLight)
@@ -79,11 +80,17 @@ export default {
     this.ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.1);
     this.scene.add(this.ambientLight)
 
+    const light = new THREE.PointLight(0xFFFFFF, 1, 50, 1.0);
+    light.position.y = 10
+    light.position.z = -10
+    light.castShadow = true
+    this.scene.add(light);
+
     // //cube
-    this.geometry = new THREE.BoxGeometry(2, 2, 2)
+    this.geometry = new THREE.BoxGeometry(10, 0.05, 10)
     this.material = new THREE.MeshLambertMaterial({color: 0xff0000})
     this.cube = new THREE.Mesh(this.geometry, this.material)
-    this.cube.rotation.x = 90
+    this.cube.position.y = -1.36
     // this.scene.add(this.cube)
 
     // const oj = new THREE.OBJ
@@ -99,7 +106,7 @@ export default {
           child.material = new THREE.MeshPhysicalMaterial( {
             color: '#ffffff',
             metalness: 0,
-            roughness: 0.9
+            roughness: 1
           })
         }
       })
@@ -179,7 +186,7 @@ export default {
       //処理が重いので30fpsに落とす
       this.totalFrame++;
       if(this.totalFrame % 2 == 0) {
-        this.cube.rotation.z += this.cubeSpeed
+        // this.cube.rotation.z += this.cubeSpeed
         // this.myObject.rotation.y -= this.cubeSpeed
         this.renderer.render(this.scene, this.camera)
       }
