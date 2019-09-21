@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="home-container">
     <ThreeScene />
     <Playground v-if='isPc' />
-    <h1 class="title">to<span class="list-dec">m</span>oki Kimu<span class="list-dec">r</span>a</h1>
+    <h1 class="title"><span class="list-dec">T</span>omoki <span class="list-dec">K</span>imua</h1>
   </div>
 </template>
 
@@ -43,40 +43,41 @@ export default {
   user-select: none;
 }
 
-.container {
+.home-container {
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .title {
   color: #fff;
-  font-size: 100px;
+  font-size: 64px;
   font-weight: bold;
   position: absolute;
-  right: 0;
-  bottom: 15%;
+  right: 60px;;
+  bottom: 5%;
   z-index: 1;
   height: 100px;
-  width: 800px;
-  text-align: left;
+  width: 500px;
+  text-align: right;
   &::before, &::after {
     content: '';
     display: block;
     position: absolute;
     width: 120%;
-    height: 70px;
-    right: 0;
+    height: 36px;
+    right: -60px;
     z-index: -1;
   }
   &::before {
     background-color: #FFD800;
-    top: 100px;
-    width: 800px;
+    top: 50px;
+    width: 600px;
   }
   &::after {
     background-color: #666666;
-    top: 66px;
-    width: 840px;
+    top: 40px;
+    width: 630px;
   }
 }
 @media screen and (max-width: 768px) {
