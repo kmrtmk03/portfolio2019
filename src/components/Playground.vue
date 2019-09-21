@@ -65,7 +65,7 @@ export default {
     //マウスダウン
     window.addEventListener('mousedown', (e) => {
         this.beforeX = e.clientX - 20
-        this.beforeY = e.clientY - 80
+        this.beforeY = e.clientY + 20
         this.isDrawing = true
     })
 
@@ -78,7 +78,7 @@ export default {
     window.addEventListener('mousemove', (e) => {
         if(this.isDrawing == true) {
             const x = e.clientX - 20
-            const y = e.clientY - 80
+            const y = e.clientY + 20
             this.draw(x, y)
         }
     })
@@ -88,36 +88,40 @@ export default {
       this.isOpenPanal = !this.isOpenPanal
       if(this.isOpenPanal) {
         this.openClose = 'Break Drawing'
+        store.state.isDrawingPanel = true
       } else {
         this.openClose = 'Start Drawing'
+        store.state.isDrawingPanel = false
       }
       this.init();
     },
     init() {
-        this.isDrawing = false
+      this.isDrawing = false
 
-        this.currentColor = '#FFD800'
+      this.currentColor = '#FFD800'
 
-        this.canvas = document.getElementById('canvas-playground')
-        this.ctx = this.canvas.getContext('2d')
+      this.canvas = document.getElementById('canvas-playground')
+      this.ctx = this.canvas.getContext('2d')
 
-        this.ctx.fillStyle = '#ffffff'
-        this.ctx.fillRect(0, 0, 512, 512)
-
-        this.clear()
+      this.clear()
     },
     draw(x, y) {
-        this.ctx.lineCap = 'round';
-        this.ctx.fillStyle = this.currentColor
-        this.ctx.strokeStyle = this.currentColor;
-        this.ctx.lineWidth = this.linewidth;
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.beforeX, this.beforeY);
-        this.ctx.lineTo(x, y);
-        this.ctx.stroke();
-        this.ctx.closePath();
-        this.beforeX = x;
-        this.beforeY = y;
+      this.ctx.lineCap = 'round';
+      this.ctx.fillStyle = this.currentColor
+      this.ctx.strokeStyle = this.currentColor;
+      this.ctx.lineWidth = this.linewidth;
+      this.ctx.beginPath();
+      this.ctx.moveTo(this.beforeX, this.beforeY);
+      this.ctx.lineTo(x, y);
+      this.ctx.stroke();
+      this.ctx.closePath();
+      this.beforeX = x;
+      this.beforeY = y;
+
+      //UV用の塗りつぶし箇所
+      this.ctx.fillStyle = '#666666'
+      this.ctx.fillRect(0, 0, 512, 112)
+      this.ctx.fillRect(0, 400, 512, 112)      
     },
     changeColor(_color) {
       this.currentColor = _color
@@ -127,8 +131,12 @@ export default {
       store.state.canvasData = canvasData
     },
     clear() {
-        this.ctx.fillStyle = '#ffffff'
-        this.ctx.fillRect(0, 0, 512, 512)
+      this.ctx.fillStyle = '#ffffff'
+      this.ctx.fillRect(0, 0, 512, 512)
+
+      this.ctx.fillStyle = '#666666'
+      this.ctx.fillRect(0, 0, 512, 112)
+      this.ctx.fillRect(0, 400, 512, 112)
     }
   }
 }
@@ -139,7 +147,7 @@ export default {
 .setting {
   position: absolute;
   width: 552px;
-  top: 620px;
+  top: 420px;
   left: 0;
   &-title {
     height: 26px;
@@ -240,8 +248,9 @@ export default {
 }
 .canvas {
   position: absolute;
-  top: 80px;
+  top: -20px;
   left: 20px;
+  z-index: -1;
 }
 .button {
   &-save, &-clear {
@@ -260,10 +269,10 @@ export default {
     }
   }
   &-save {
-    bottom: 50px;
+    bottom: 320px;
   }
   &-clear {
-    bottom: 0px
+    bottom: 270px
   }
 }
 </style>

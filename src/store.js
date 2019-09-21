@@ -10,7 +10,8 @@ export default new Vuex.Store({
     isMobile: false,
     worksModalNumber: 0,
     isMenu: false,
-    canvasData: null
+    canvasData: null,
+    isDrawingPanel: false
   },
   getters: {
     getCanvasData(state) {
