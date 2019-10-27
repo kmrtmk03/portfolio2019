@@ -55,7 +55,7 @@ export default {
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(45, this.screenwidth / this.screenheight, 1, 1000)
 
-    //canvas setting
+    //renderer setting
     const $canvas = document.getElementById('canvas')
     this.renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -93,16 +93,15 @@ export default {
     this.cube.position.y = -1.36
     // this.scene.add(this.cube)
 
-    // const oj = new THREE.OBJ
+
+    //Canvas Model Import
     const loader = new FBXloader()
     loader.load('../models/canvas-v1.fbx', function(object) {
-      //読み込んだfbxをvueの変数に入れる
-      this.myObject = object
+      this.myObject = object //読み込んだfbxをvueの変数に入れる
 
       //materialの設定
       this.myObject.traverse(function (child) {
         if(child.isMesh) {
-          // child.material = new THREE.MeshLambertMaterial({color: 0xffffff})
           child.material = new THREE.MeshPhysicalMaterial( {
             color: '#ffffff',
             metalness: 0,
@@ -111,14 +110,15 @@ export default {
         }
       })
 
-      this.myObject.position.y = -0.6
-      //sceneにfbxを追加
-      this.scene.add(this.myObject)
+      this.myObject.position.y = -0.6 //読み込んだオブジェクトの調整
+
+      this.scene.add(this.myObject) //sceneにfbxを追加
+
     }.bind(this), null, function(error) {
-      console.log(error)
+      console.log(error) //エラー内容をコンソールに
     })
 
-
+    //イーゼル model import
     let _color = null
     let _metallic = null
     let _roughness = null
@@ -128,22 +128,18 @@ export default {
     let colormapLoader = new THREE.TextureLoader()
     colormapLoader.load('../texture/color-map.png', function(colormap) {
       _color = colormap
-
       //Load MetalnessMap -Start
       let metalnessLoader = new THREE.TextureLoader()
       metalnessLoader.load('../texture/metallic-map.png', function(metallicmap) {
         _metallic = metallicmap
-
         //Load Roughness - Start
         let roughnessLoader = new THREE.TextureLoader()
         roughnessLoader.load('../texture/roughness-map.png', function(roughnessmap) {
           _roughness = roughnessmap
-
           //Load NormalLoader - Start
           let normalLoader = new THREE.TextureLoader()
           normalLoader.load('../texture/normal-map.png', function(normalmap) {
             _normal = normalmap
-
             //Load FBX - Start
             const frameLoader = new FBXloader()
             frameLoader.load('../models/frame-v1.fbx', function(object){
@@ -162,19 +158,18 @@ export default {
               this.myFrame.position.y = -0.6
               this.scene.add(this.myFrame)
 
-              console.log(this)
+              console.log(this) //thisが正常にバインドされているかを確認
+
+              //回転アニメーション
+              this.cubeAnim()
+
             }.bind(this), null, function(error) {
               console.log(error)
             }) //Load FBX - End
-
           }.bind(this)) //Load NormalLoader - End
         }.bind(this)) //Load RoughnessMap - End
       }.bind(this)) //Load MetalnessMap - End
     }.bind(this)) //Load ColorMap - End
-
-
-    //回転アニメーション
-    this.cubeAnim()
   },
   methods: {
     //回転アニメーション
@@ -220,7 +215,6 @@ export default {
           child.material = newMat
         }
       }.bind(this))
-
     }
   }
 }

@@ -79,8 +79,8 @@ export default {
                 className: 'hobby'
             },
             skills: [
-                { id:1, title: 'Unity', detail: '2018年4月より本格的に使用。<br>10個ほどのインスタレーション案件の開発に用いる。'},
-                { id:2, title: 'Web', detail: '学生時代、Webフロントエンジニアのときに使用。<br>当時の開発環境は「EJS / PostCSS / ES6(babel) / gulp+webpack」<br>現在はVue.jsを使用。'}
+                { id:1, title: 'Unity', detail: '2018年4月より本格的に使用。<br>10個ほどのインスタレーション案件で開発。'},
+                { id:2, title: 'Web系', detail: '学生時代、Webフロントエンジニアのときに使用。<br>当時の開発環境は「EJS / PostCSS / ES6(babel) / gulp+webpack」<br>現在はVue.jsを使用。'}
             ],
             historys: [
                 { id: 1, title: '1993.11', detail: '和歌山県にて生まれる。' },
@@ -88,15 +88,15 @@ export default {
                 { id: 3, title: '2016.3', detail: '上記大学を卒業。' },
                 { id: 4, title: '2016.4', detail: 'デジタルハリウッド大阪校に入学。' },
                 { id: 5, title: '2017.3', detail: '上記を卒業。<br>デジタルフロンティア2017 インスタレーション部門ベストプランニング賞を受賞。' },
-                { id: 6, title: '2017.8', detail: '上京。<br>株式会社イメージソースでWebフロントエンジニアとして働き始める。' },
+                { id: 6, title: '2017.8', detail: '株式会社イメージソースでWebフロントエンジニアとして入社。' },
                 { id: 7, title: '2018.4', detail: 'インスタレーション案件の開発に携わるようになる。' },
                 { id: 8, title: '2018.11', detail: '自社展示イベントProtoTypesにて「Effects Simulation」を出展し、<br>会社の顔に泥を塗る。' }
             ],
             hobbys: [
-                { id: 1, title: '写真', detail: 'Sony α7とRICOH GRを使用。<br>インスタグラマーになりたい。'},
+                { id: 1, title: '写真', detail: 'Sony α7とRICOH GRを使用。主にストリートスナップ。'},
                 { id: 2, title: '読書', detail: '平日の朝夜、休日の過ごし方。<br>村上春樹と太宰治が好き。'},
-                { id: 3, title: '深夜ラジオ', detail: '主にオールナイトニッポン。<br>オードリーとCreepy Nutsが毎週の楽しみ。'},
-                { id: 4, title: 'アイドル', detail: 'ハロー!プロジェクトと日向坂46に夢中。<br>疲れた時は°C-ute、楽しい時はアンジュルムを嗜む。<br>推しは和田桜子（こぶしファクトリー）と齊藤京子（日向坂46）。'},
+                { id: 3, title: '深夜ラジオ', detail: '主にオールナイトニッポン。'},
+                { id: 4, title: 'アイドル', detail: 'ハロー!プロジェクトと日向坂46に夢中。<br>疲れた時は°C-ute、楽しい時はアンジュルムを嗜む。<br>推しは和田桜子（こぶしファクトリー）と佐々木久美（日向坂46）。'},
                 { id: 5, title: '純喫茶', detail: 'クリームソーダを求めて。本を読みながらゆったりする時間が至福。<br>阿佐ヶ谷のgionと吉祥寺のゆりあぺむぺるが特にお気に入り。'}
             ]
         }

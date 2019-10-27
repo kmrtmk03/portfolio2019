@@ -127,10 +127,9 @@ export default {
                     date: '2019.9',
                     imgtopUrl: 'portfolio2019-0',
                     texts: [
-                        {id: 1, content: '自分のサイトを作るため、1年半ぶりにwebを制作しました。デザイン2日、実装はだいたい2週間ぐらいでした。'},
-                        {id: 2, content: '読書が好きなので、栞を差し込むような横から流れてくるアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装がメインです。'},
-                        {id: 3, content: 'トップページにはお絵かき機能を持たせました。絵を描いてbase64で保存する処理をcanvasで、描いた絵を反映する処理はThree.jsで実装しました。またイーゼルとキャンバスのモデルデータはHoudniでモデリングし、Substance Painterでテクスチャリングを行いました。'},
-                        {id: 4, content: 'FTPソフトを使ってサーバーにアップするのではなくターミナルからHerokuにデプロイをしたり、Webフロントエンジニアをしていたときと環境が大きく変化していたので、フロントエンドの流れの速さを実感しました。'},
+                        {id: 1, content: '自分のサイトを作るため、1年半ぶりにwebを制作。実装期間は約2週間ぐらいでした。'},
+                        {id: 2, content: '栞を差し込むような横から流れてくるアニメーションを意識。アニメーションはJavascriptでのclassの付与での実装をメインに。'},
+                        {id: 3, content: 'トップページにはお絵かき機能を持たせました。絵を描いてbase64で保存する処理をcanvasで、描いた絵を反映する処理はThree.jsで実装。またイーゼルとキャンバスのモデルデータはHoudniでモデリングし、Substance Painterでテクスチャリングを行いました。'}
                     ],
                     soft: 'Vue CLI / three.js / canvas / Houdini',
                     link: 'https://github.com/kmrtmk03/portfolio2019',
