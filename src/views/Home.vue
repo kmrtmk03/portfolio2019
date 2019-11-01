@@ -2,7 +2,7 @@
   <div class="home-container">
     <ThreeScene />
     <Playground v-if='isPc' />
-    <h1 class="title"><span class="list-dec">T</span>omoki <span class="list-dec">K</span>imua</h1>
+    <h1 class="title"><span class="list-dec">T</span>omoki <span class="list-dec">K</span>imura</h1>
   </div>
 </template>
 

@@ -105,12 +105,13 @@ export default {
             test: 'Portfolio',
             instalationWebs: [
                 {id: 1, number: 0, title: 'Portfolio 2019', imgsrc: 'portfolio2019-0'},
+                {id: 8, number: 11, title: 'Aida mitsuo', imgsrc: 'nestle-1'},
                 {id: 2, number: 8, title: 'meiji YOGURT TOWN', imgsrc: 'meiji-1'},
                 {id: 3, number: 9, title: 'Space Light Shuttle', imgsrc: 'shuttle-1'},
                 {id: 4, number: 1, title: 'Effects Simulation', imgsrc: '_thumbnail-effect_simulation'},
                 {id: 5, number: 10, title: 'Heineken STAR GROOVE', imgsrc: 'heineken-1'},
                 {id: 6, number: 2, title: 'Invisibleball', imgsrc: '_thumbnail-invisibleball'},
-                {id: 7, number: 7, title: 'Blog site', imgsrc: 'blog-1'},
+                {id: 7, number: 7, title: 'Blog site', imgsrc: 'blog-1'}
             ],
             cgs: [
                 {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: 'houdini_smoke-1'},
@@ -301,6 +302,25 @@ export default {
                     imgs: [
                         {id: 1, filename: 'heineken-2'},
                         {id: 2, filename: 'heineken-3'}
+                    ]
+                },
+                { 
+                    number: 11,
+                    title: 'Aida mitsuo',
+                    date: '2019.7',
+                    imgtopUrl: 'nestle-1',
+                    texts: [
+                        {id: 1, content: 'ネスレ日本株式会社が、感情分析AIで利用者の声からココロの状態を診断し、オリジナルの言葉を診断結果と共にお届けするサービス「アイスクレマコーヒーで、ちょっと一息！ 声でココロ診断」を展開。'},
+                        {id: 2, content: '「にんげんだもの」の言葉で有名な書家・詩人の相田みつを氏の詩を学習した文章生成AIが、オリジナルの言葉をユーザーの診断結果と共にお届けするサービスを制作し、ネスレカフェ原宿にてPRイベント用アプリケーションの開発を行いました。'},
+                        {id: 3, content: '壺に向かって声をかけると、声の特徴やトーンから「おつかれココロ度」「ふんわかココロ度」など今の気分をempath APIを通してレーダーチャートで表示。その後、相田みつを氏が創作した詩をディープラーニングしたキャラクター「AIだみつを」が、診断結果を元に、相田氏の詩のように前向きになれることばをお届けるするというコンテンツを制作しました。'},
+                        {id: 4, content: '診断結果を店員に伝えると、AIだみつをオリジナルの言葉ラテアートをオーダーすることができ、１ヶ月の期間中多くの方に体験いただきました。'},
+                    ],
+                    soft: 'Unity / Empath（音声感情解析AI）',
+                    link: 'https://www.imgsrc.co.jp/work/nestle-aidamitsuo/',
+                    linkText: 'https://www.imgsrc.co.jp/work/nestle-aidamitsuo/',
+                    imgs: [
+                        {id: 1, filename: 'nestle-2'},
+                        {id: 2, filename: 'nestle-3'}
                     ]
                 }
             ],
