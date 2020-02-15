@@ -8,12 +8,11 @@
         <div class="section-wrap section-wrap-first">
             <SectionTitle v-bind:sectionTitle='arry_1st.title' v-bind:className='arry_1st.className'></sectionTitle>
             <p class="section-detail">
-                キムラトモキ、26歳。大阪府在住。<br>
-                2016年3月の大学卒業直後、デジタルハリウッド大阪校にて<br>
+                キムラトモキ<br>
+                26歳。大阪府在住。<br>
+                大学卒業直後、デジタルハリウッド大阪校にて<br>
                 デザイン/コーディングを学びながら、独学に近い形でプログラミングを勉強。<br>
-                2017年8月より株式会社イメージソースにWebフロントエンジニアとして就職し、<br>
-                Unityを使ったインスタレーション案件の開発を行う。<br>
-                2020年2月に退社<br>
+                2017年8月から2020年2月まで株式会社イメージソースでエンジニアとして働く。<br>
                 自称3DCGを使ったアプローチが得意。お腹が弱い。人見知り。深夜ラジオが友達。
             </p>
         </div>
@@ -91,15 +90,15 @@ export default {
                 { id: 5, title: '2017.03', detail: '上記を卒業。<br>デジタルフロンティア2017 インスタレーション部門ベストプランニング賞を受賞。' },
                 { id: 6, title: '2017.08', detail: '株式会社イメージソースでWebフロントエンジニアとして入社。' },
                 { id: 7, title: '2018.04', detail: 'インスタレーション案件の開発に携わるようになる。' },
-                { id: 8, title: '2018.11', detail: '自社展示イベントProtoTypesにて「Effects Simulation」を出展し、<br>会社の顔に泥を塗る。' },
+                { id: 8, title: '2018.11', detail: '自社展示イベントProtoTypesにて「Effects Simulation」を出展。' },
                 { id: 9, title: '2020.02', detail: 'イメージソースを退社。' }
             ],
             hobbys: [
-                { id: 1, title: '写真', detail: 'Sony α7とRICOH GRを使用。主にストリートスナップ。'},
-                { id: 2, title: '読書', detail: '平日の朝夜、休日の過ごし方。<br>村上春樹と太宰治が好き。'},
-                { id: 3, title: '深夜ラジオ', detail: '主にオールナイトニッポン。'},
-                { id: 4, title: 'アイドル', detail: 'ハロー!プロジェクトと日向坂46に夢中。<br>疲れた時は°C-ute、楽しい時はアンジュルムを嗜む。<br>推しは和田桜子（こぶしファクトリー）と佐々木久美（日向坂46）。'},
-                { id: 5, title: '純喫茶', detail: 'クリームソーダを求めて。本を読みながらゆったりする時間が至福。<br>阿佐ヶ谷のgionと吉祥寺のゆりあぺむぺるが特にお気に入り。'}
+                { id: 1, title: 'カメラ', detail: 'モノクロフィルムを時間現像したりしています。'},
+                { id: 2, title: '読書', detail: '太宰治が好きです。'},
+                { id: 3, title: '深夜ラジオ', detail: 'リトルトゥースです。'},
+                { id: 4, title: 'アイドル', detail: 'こぶしファクトリーの解散で落ち込みました。'},
+                { id: 5, title: '喫茶店巡り', detail: '一番まともな趣味です。'}
             ]
         }
     },
