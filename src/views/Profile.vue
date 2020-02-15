@@ -8,11 +8,12 @@
         <div class="section-wrap section-wrap-first">
             <SectionTitle v-bind:sectionTitle='arry_1st.title' v-bind:className='arry_1st.className'></sectionTitle>
             <p class="section-detail">
-                キムラトモキ、25歳。東京都在住、和歌山県出身。<br>
+                キムラトモキ、26歳。大阪府在住。<br>
                 2016年3月の大学卒業直後、デジタルハリウッド大阪校にて<br>
                 デザイン/コーディングを学びながら、独学に近い形でプログラミングを勉強。<br>
                 2017年8月より株式会社イメージソースにWebフロントエンジニアとして就職し、<br>
-                現在は同社にてUnityを使ったインスタレーション案件の開発を行う。<br>
+                Unityを使ったインスタレーション案件の開発を行う。<br>
+                2020年2月に退社<br>
                 自称3DCGを使ったアプローチが得意。お腹が弱い。人見知り。深夜ラジオが友達。
             </p>
         </div>
@@ -84,13 +85,14 @@ export default {
             ],
             historys: [
                 { id: 1, title: '1993.11', detail: '和歌山県にて生まれる。' },
-                { id: 2, title: '2012.4', detail: '近畿大学経済学部経済学科に入学。' },
-                { id: 3, title: '2016.3', detail: '上記大学を卒業。' },
-                { id: 4, title: '2016.4', detail: 'デジタルハリウッド大阪校に入学。' },
-                { id: 5, title: '2017.3', detail: '上記を卒業。<br>デジタルフロンティア2017 インスタレーション部門ベストプランニング賞を受賞。' },
-                { id: 6, title: '2017.8', detail: '株式会社イメージソースでWebフロントエンジニアとして入社。' },
-                { id: 7, title: '2018.4', detail: 'インスタレーション案件の開発に携わるようになる。' },
-                { id: 8, title: '2018.11', detail: '自社展示イベントProtoTypesにて「Effects Simulation」を出展し、<br>会社の顔に泥を塗る。' }
+                { id: 2, title: '2012.04', detail: '近畿大学経済学部経済学科に入学。' },
+                { id: 3, title: '2016.03', detail: '上記大学を卒業。' },
+                { id: 4, title: '2016.04', detail: 'デジタルハリウッド大阪校に入学。' },
+                { id: 5, title: '2017.03', detail: '上記を卒業。<br>デジタルフロンティア2017 インスタレーション部門ベストプランニング賞を受賞。' },
+                { id: 6, title: '2017.08', detail: '株式会社イメージソースでWebフロントエンジニアとして入社。' },
+                { id: 7, title: '2018.04', detail: 'インスタレーション案件の開発に携わるようになる。' },
+                { id: 8, title: '2018.11', detail: '自社展示イベントProtoTypesにて「Effects Simulation」を出展し、<br>会社の顔に泥を塗る。' },
+                { id: 9, title: '2020.02', detail: 'イメージソースを退社。' }
             ],
             hobbys: [
                 { id: 1, title: '写真', detail: 'Sony α7とRICOH GRを使用。主にストリートスナップ。'},

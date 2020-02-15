@@ -205,9 +205,9 @@ export default {
   top: 60px;
   left: 612px;
   text-align: left;
-  &:not(.close) {
-    animation: buttonopen 1000ms 0ms infinite;
-  }
+  // &:not(.close) {
+  //   animation: buttonopen 1000ms 0ms infinite;
+  // }
   &:hover {
     cursor: pointer;
     color: $keyColor;

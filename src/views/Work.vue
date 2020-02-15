@@ -114,7 +114,7 @@ export default {
                 {id: 7, number: 7, title: 'Blog site', imgsrc: 'blog-1'}
             ],
             cgs: [
-                {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: 'houdini_smoke-1'},
+                {id: 1, number: 3, title: 'Houdini Smoke', imgsrc: 'houdini_smoke-2'},
                 {id: 2, number: 4, title: 'Houdini Line', imgsrc: 'houdini_line-1'},
                 {id: 3, number: 5, title: 'Modeling', imgsrc: 'Modeling-1'}
             ],
@@ -178,7 +178,7 @@ export default {
                     number: 3,
                     title: 'Houdini Smoke',
                     date: '2017.10',
-                    imgtopUrl: '_thumbnail-houdini_effects-smoke1',
+                    imgtopUrl: '_thumbnail-houdini_effects-smoke2',
                     texts: [
                         {id: 1, content: 'Houdiniの流体シミュレーションを使って制作した静止画です。実際の煙では見ない淡い色を使用してCG感を出しました。'}
                     ],
@@ -186,7 +186,7 @@ export default {
                     link: '',
                     imgs: [
                         {id: 1, filename: 'houdini_smoke-2'},
-                        {id: 2, filename: 'houdini_smoke-3'},
+                        // {id: 2, filename: 'houdini_smoke-3'},
                         {id: 3, filename: 'houdini_smoke-4'},
                         {id: 4, filename: 'houdini_smoke-5'}
                     ]
