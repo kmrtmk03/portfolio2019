@@ -158,6 +158,8 @@ export default {
               this.myFrame.position.y = -0.6
               this.scene.add(this.myFrame)
 
+              store.state.isLoad = true;
+
               console.log(this) //thisが正常にバインドされているかを確認
 
               //回転アニメーション

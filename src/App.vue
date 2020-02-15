@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loading></Loading>
     <MenuButton @MenuOpen='MenuOpen'></MenuButton>
     <transition name="menu">
       <MenuModal v-if='isMenuOpen' @MenuClose='MenuClose' @OnOver="OnPageOver"></MenuModal>
@@ -19,13 +20,15 @@ import store from './store'
 import MenuButton from './components/MenuButton'
 import MenuModal from './components/MenuModal'
 import OnPageOver from './components/OnPageOver'
+import Loading from './components/Loading'
 
 export default {
   name: 'App',
   components: {
     MenuButton,
     MenuModal,
-    OnPageOver
+    OnPageOver,
+    Loading
   },
   data: function() {
     return {
