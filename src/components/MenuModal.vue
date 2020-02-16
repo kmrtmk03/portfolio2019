@@ -152,7 +152,7 @@ export default {
 @media screen and (max-width: $breakpointMiddle) {
   .menu-link {
     width: 160px;
-    bottom: 20px;
+    bottom: 120px;
     right: calc((100vw - 160px) / 2);
     &-list {
       width: 36px;
