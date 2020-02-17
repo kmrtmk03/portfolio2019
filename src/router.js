@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Work from './views/Work.vue'
 import Profile from './views/Profile.vue'
-import Playground from './views/Playground.vue'
+import TestPage from './views/TestPage.vue'
 
 Vue.use(Router)
 
@@ -27,9 +27,9 @@ export default new Router({
       component: Profile
     },
     {
-      path: '/playground',
-      name: 'playground',
-      component: Playground
+      path: '/testpage',
+      name: 'testPage',
+      component: TestPage
     }
   ]
 })

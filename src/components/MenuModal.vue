@@ -54,7 +54,7 @@ export default {
         { id: 1, name: 'Home', to: '/', displayName: 'home' },
         { id: 2, name: 'Profile', to: '/profile', displayName: 'profile'  },
         { id: 3, name: 'Works', to: '/work', displayName: 'works'  },
-        { id: 4, name: 'Playground', to: '/playground', displayName: 'playground'  }
+        // { id: 4, name: 'TestPage', to: '/testpage', displayName: 'testpage'  }
       ],
       currentChoise: ''
     }

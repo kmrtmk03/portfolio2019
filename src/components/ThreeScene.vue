@@ -41,7 +41,15 @@ export default {
     this.screenwidth = window.innerWidth
     this.screenheight = window.innerHeight
   },
+  destroyed() {
+    while(this.scene.children.length > 0){ 
+        this.scene.remove(this.scene.children[0]); 
+    }
+  },
   mounted() {
+
+    console.log("Mouted")
+
     //Base64の保存をwatch
     this.$store.watch(
       (state, getters) => getters.getCanvasData,
